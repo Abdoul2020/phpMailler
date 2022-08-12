@@ -1,0 +1,17 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 15.3.1//EN
+N:Çevik;Samet ;;;
+FN:Samet  Çevik
+ORG:Hibrit Medya A.Ş;
+EMAIL;type=INTERNET;type=HOME;type=pref:samet@hibritmedya.com.tr
+TEL;type=CELL;type=VOICE;type=pref:+905321625354
+X-SOCIALPROFILE;type=twitter:http://twitter.com/sametcevik06
+X-SOCIALPROFILE;type=facebook:http://www.facebook.com/sametceviq
+X-SOCIALPROFILE;type=Instagram;x-user=sc_samet:x-apple:sc_samet
+X-SOCIALPROFILE;type=linkedin:http://www.linkedin.com/in/sametcevik
+X-SOCIALPROFILE;type=‎WhatsApp;x-user=+905321625354:x-apple:+905321625354
+item1.URL;type=pref:hibritmedya.com.tr
+item1.X-ABLabel:_$!<HomePage>!$_
+BDAY:1993-03-24
+END:VCARD

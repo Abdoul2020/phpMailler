@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/red-gradient.css" id="main_style">
+    <link rel="stylesheet" href="assets/css/payment-style.css" id="main_style">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,800" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" rel="stylesheet">
+    <title>Hibrit Card</title>
+    <link rel="icon" href="assets/img/Logo_32x32.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./assets/css/animate.css" />
+
+
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            background: goldenrod;
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            transition: all 1s linear;
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visuallyhidden {
+            opacity: 0;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+
+        code {
+            color: firebrick;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Main menu-->
+    <div class="menu">
+        <div class="container menu__wrapper">
+            <div class="row">
+                <div class="menu__logo menu__item">
+                    <a href="index"><img src="assets/img/hbrt.png" style="width: 150px;" alt="HibritCard"></a>
+                </div>
+                <div class="menu__item d-t-none">
+                    <nav class="menu__center-nav">
+                        <ul>
+                            <li><a href="index" class="link link--gray link--gray-active">Anasayfa</a></li>
+                            <li><a href="features" class="link link--gray">Özellikler</a></li>
+                            <li><a href="buy" class="link link--gray">Satın Al</a></li>
+                            <li><a href="sss" class="link link--gray">S.S.S.</a></li>
+                            <li><a onclick="openShopping()" class="shopping-icon link link--gray"><i
+                                        class="fa-solid fa-cart-shopping"></i>
+                                    <span class="shopping-number">5</span>
+                                </a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu__item">
+                    <nav class="menu__right-nav d-l-none">
+                        <ul>
+                            <li><a href="https://panel.hibritcard.com/" class="site-btn site-btn--accent">Giriş Yap</a>
+                            </li>
+                            <!-- <li>
+              <div class="menu__dropdown d-t-none">
+                <a class="link link--gray menu__dropdown-btn">Tr
+                  <span><i class="mdi mdi-chevron-down"></i></span>
+                </a>
+                <div class="menu__dropdown-content">
+                  <a class="link link--gray" href="#">En</a>
+                  <a class="link link--gray" href="#">Fr</a>
+                </div>
+              </div>
+            </li> -->
+                        </ul>
+                    </nav>
+                    <div class="d-none d-t-block">
+                        <button type="button" class="menu__mobile-button">
+                            <span><i class="mdi mdi-menu" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Main menu-->
+
+    <!--Mobile menu-->
+    <div class="mobile-menu d-none d-t-block">
+        <div class="container">
+            <div class="mobile-menu__logo">
+                <a href="index"><img src="assets/img/logo-square.png" style="width: 50px;" alt="HibritCard"></a>
+            </div>
+            <button type="button" class="mobile-menu__close">
+                <span><i class="mdi mdi-close" aria-hidden="true"></i></span>
+            </button>
+            <nav class="mobile-menu__wrapper">
+                <ul class="mobile-menu__ul">
+                    <li class="mobile-menu__ul--collapsed">
+                    <li class="mobile-menu__li "><a href="index" class="link link--dark-gray">Anasayfa</li>
+                    <li class="mobile-menu__li"><a href="features" class="link link--dark-gray">Özellikler</a></li>
+                    <li class="mobile-menu__li"><a href="buy" class="link link--dark-gray">Satın Al</a></li>
+                    <li class="mobile-menu__li"><a href="sss" class="link link--dark-gray">S.S.S</a></li>
+                    <li class="mobile-menu__li"><a onclick="openShopping()" class="link link--dark-gray"><i
+                                class="fa-solid fa-cart-shopping"></i></a></li>
+
+                    <li class="mobile-menu__li"><a href="https://panel.hibritcard.com/"
+                            class="site-btn site-btn--accent">Giriş Yap</a></li>
+                    <!-- <li class="mobile-menu__li mobile-menu__li-collapse"><a class="link link--dark-gray">En
+          <span><i class="mdi mdi-chevron-down"></i></span></a></li>
+        <li class="mobile-menu__ul--collapsed">
+          <ul class="mobile-menu__ul">
+            <li class="mobile-menu__li"><a href="" class="link link--gray link--gray-active">En</a></li>
+            <li class="mobile-menu__li"><a href="" class="link link--gray">Fr</a></li>
+            <li class="mobile-menu__li"><a href="" class="link link--gray">Ch</a></li>
+          </ul>
+        </li> -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mobile menu-->
+
+
+    <!-- shopping area -->
+
+    <div id="shoppingBar" class="shopping-global ">
+        <div onclick="closeShopping()" class="shopping-bg"></div>
+        <div id="shoppingBarIn" class="shopping-bar">
+
+            <div class="header">
+                <div class="text">Sepetim</div>
+                <div onclick="closeShopping()" class="close">x</div>
+            </div>
+
+            <div class="shopping-content">
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shopping-footer">
+                <div class="title">
+                    <div class="text">Toplam:</div>
+                    <div class="total-price">₺299,99</div>
+                </div>
+                <div class="footer-buttons">
+                    <div class="button-item">
+                        <a href="#" class="site-btn site-btn--accent form__submit" style="width: 100%;">Sepete Git</a>
+                    </div>
+                    <div class="button-item">
+                        <a href="#" class="site-btn site-btn--accent form__submit" style="width: 100%;">Ödemeye
+                            Geç</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- shopping area -->
+
+    <!--Form-->
+    <section class="section section--last section--top-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <h3 class="section__title">Ödeme Sayfası</h3>
+                </div>
+            </div>
+            <div class="row form">
+                <div class=" col-12 ">
+                    <div class="form__card card form__card--background">
+                        <div class="row">
+                            <div class=" col-7 ">
+
+                                <div class="form__wrap-check">
+                                    <h4>Adres Bilgilerini Giriniz</h4>
+                                    <div class="form__form js-form">
+                                        <div class="form__form-group form__form-group--small">
+                                            <label class="form__label">Adınız</label>
+                                            <input class="form__input js-field__first-name" type="text"
+                                                placeholder="Adınız">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small form__form-group--right">
+                                            <label class="form__label">Soyadınız</label>
+                                            <input class="form__input js-field__last-name" type="text"
+                                                placeholder="Soyadınız">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small">
+                                            <label class="form__label">İletişim Telefonu</label>
+                                            <input class="form__input js-field__first-name" type="text"
+                                                placeholder="İletişim Telefonu">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small form__form-group--right">
+                                            <label class="form__label">E-Posta Adresiniz</label>
+                                            <input class="form__input js-field__last-name" type="text"
+                                                placeholder="E-Posta Adresiniz">
+                                            <span class="form-validation"></span>
+                                        </div>
+
+                                        <!-- özel -->
+                                        <div class="payment-select-multi">
+                                            <div class=" form__form-group different-adress" style="padding-top: 0;">
+                                                <div class="form__form-group form__form-group">
+                                                    <label class="form__label">İl</label>
+                                                    <select oninput="selectedIl()" id="Iller"
+                                                        class="form__input js-field__first-name" onchange="" size="1">
+                                                        <option value="00">Bir İl Seçiniz</option>
+
+                                                    </select>
+                                                    <span class="form-validation"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class=" form__form-group different-adress" style="padding-top: 0;">
+                                                <div class="form__form-group form__form-group">
+                                                    <label class="form__label">İlçe</label>
+                                                    <select id="Ilceler" class="form__input js-field__first-name"
+                                                        onchange="" size="1">
+                                                        <option value="0">Lütfen önce bir il seçiniz</option>
+
+                                                    </select>
+                                                    <span class="form-validation"></span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- özel -->
+                                        <div class="form__form-group">
+                                            <label class="form__label">Adresiniz</label>
+                                            <input class="form__input js-field__company" type="text">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Telefon Numaranız</label>
+                                            <input class="form__input js-field__phone" type="text" placeholder="+90"
+                                                required>
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Email</label>
+                                            <input class="form__input js-field__email" type="email" placeholder=""
+                                                required>
+                                            <span class="form-validation"></span>
+                                        </div>
+
+                                        <div class="form__form-group">
+                                            <label class="form__label">Logo Ekle</label>
+                                            <input class="form__input js-field__email" type="file" placeholder=""
+                                                required>
+                                            <span class="form-validation"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Fatura Bilgileri -->
+
+                                <br> <br>
+                                <div class="form__wrap-check">
+                                    <h4>Fatura Bilgileri</h4>
+                                    <div class="form__form js-form">
+                                        <div class="form__form-group form__form-group--small">
+                                            <label class="form__label">Fatura Türü</label>
+                                            <div class="radio-container">
+                                                <label class="payment-radio">
+                                                    <input type="radio" checked="checked" name="invoice-type">
+                                                    <span class="checkmark">Bireysel</span>
+                                                </label>
+                                                <label class="payment-radio">
+                                                    <input type="radio" name="invoice-type">
+                                                    <span class="checkmark">Kurumsal</span>
+                                                </label>
+
+                                            </div>
+
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small form__form-group--right">
+
+                                        </div>
+
+
+                                        <div class="form__form-group">
+                                            <label class="form__label">Ad Soyad</label>
+                                            <input class="form__input js-field__company" type="text"
+                                                placeholder="Ad Soyad">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Tc Kimlik No</label>
+                                            <input class="form__input js-field__phone" type="text"
+                                                placeholder="Tc Kimlik No" required>
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Email</label>
+                                            <input class="form__input js-field__email" type="email" placeholder=""
+                                                required>
+                                            <span class="form-validation"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class=" col-5 ">
+                                <div class="form__wrap-check">
+                                    <h4>Sipariş Detayınız</h4>
+                                    <div class="form__form js-form">
+
+                                        <div class="payment-detail">
+                                            <div class="col-2"><img src="./assets/img/payment/ziraat-bankasi-logo.png"
+                                                    alt=""></div>
+                                            <div class="col-10">
+                                                <p style="color:#666; "><b style=" color:#666; font-weight:bold;">
+                                                        Ziraat Bankası </b>|
+                                                    Bilkent / Ankara Şubesi</p>
+                                                <p>Hibritart Medya Reklam A.Ş.</p>
+                                                <p><b style="color:#666; font-weight:bold;">TR42 0001 0017 6297 4887
+                                                        8550 03</b> </p>
+                                                <p><b style="color:#666;">Mersis Numarası: </b>0462091073900001
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="payment-detail">
+                                            Kişisel verileriniz, siparişinizi işleme koymak, bu web sitesindeki
+                                            deneyiminizi desteklemek ve gizlilik politikamızda açıklanan diğer amaçlar
+                                            için kullanılacaktır.
+                                        </div>
+
+                                        <div class="payment-detail">
+                                            <div class="detail-checkbox-container">
+                                                <label class="detail-checkbox">
+                                                    <input type="checkbox" name="radio">
+
+                                                    <span class="checkmark"><a href="/KVKK"> KVKK Aydınlatma Metni</a>
+                                                        okudum, Kabul
+                                                        ediyorum. *</span>
+                                                </label>
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-checkbox-container">
+                                                <label class="detail-checkbox">
+                                                    <input type="checkbox" name="radio">
+
+                                                    <span class="checkmark"><a href="/USS"> Uzaktan Satış Sözleşmesi</a>
+                                                        okudum,
+                                                        Kabul ediyorum.*</span>
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <a href="#" class="site-btn site-btn--accent form__submit"
+                                                style="width: 100%;">Ön Siparişi Tamamla</a>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--Form-->
+
+
+    <!--Footer menu-->
+    <div class="container footer-menu">
+        <div class="row">
+            <div class="col-12">
+                <a href="index">
+                    <img src="assets/img/logo-square.png" style="width:40px;">
+                </a>
+                <nav class="footer-menu__nav">
+                    <ul>
+                        <li><a href="https://panel.hibritcard.com/" class="link link--gray">Giriş Yap</a></li>
+                        <li><a href="sss" class="link link--gray">SSS</a></li>
+                        <!-- <li><a href="privacy" class="link link--gray">Aydınlatma Metni</a></li> -->
+                    </ul>
+                </nav>
+                <p class="footer-menu__social">
+                    <a class="link link--gray" href="https://twitter.com/hibritcard">
+                        <i class="mdi mdi-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.facebook.com/hibritcard/">
+                        <i class="mdi mdi-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.instagram.com/hibritcard/">
+                        <i class="mdi mdi-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.linkedin.com/company/hibritcard/">
+                        <i class="mdi mdi-instagram" aria-hidden="true"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--Footer menu-->
+
+    <hr>
+
+    <!--Footer-->
+    <div class="footer ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p style="font-weight: 500;">Copyright © 2021 <strong
+                            style="font-weight: 700;">HibritCard</strong><br> Design and Development by
+                        <a style="text-decoration: none; color:#fdd140" target="_blank"
+                            href="https://www.hibritmedya.com.tr">Hibrit Medya A.Ş.</a> All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Footer-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS68NF5C3F"></script>
+    <script>
+
+
+        var differentAdressOpen = false;
+
+        function differentAdressToggle() {
+            var element = document.getElementById("differentAdressID");
+            if (differentAdressOpen) {
+                element.classList.add('animate__bounceOut');
+                element.classList.remove('animate__bounceIn');
+
+
+                setTimeout(function () {
+                    element.style.display = "none";
+                    element.classList.remove('animate__bounceOut');
+                    console.log("transitionend");
+                }, 700);
+                differentAdressOpen = false;
+
+            } else {
+                element.style.display = "block";
+
+                element.classList.add('animate__bounceIn');
+                differentAdressOpen = true;
+            }
+
+        }
+
+
+
+
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
+    <script>
+        var data = [
+            {
+                "il": "Adana",
+                "plaka": 1,
+                "ilceleri": [
+                    "Aladağ",
+                    "Ceyhan",
+                    "Çukurova",
+                    "Feke",
+                    "İmamoğlu",
+                    "Karaisalı",
+                    "Karataş",
+                    "Kozan",
+                    "Pozantı",
+                    "Saimbeyli",
+                    "Sarıçam",
+                    "Seyhan",
+                    "Tufanbeyli",
+                    "Yumurtalık",
+                    "Yüreğir"
+                ]
+            },
+            {
+                "il": "Adıyaman",
+                "plaka": 2,
+                "ilceleri": [
+                    "Besni",
+                    "Çelikhan",
+                    "Gerger",
+                    "Gölbaşı",
+                    "Kahta",
+                    "Merkez",
+                    "Samsat",
+                    "Sincik",
+                    "Tut"
+                ]
+            },
+            {
+                "il": "Afyonkarahisar",
+                "plaka": 3,
+                "ilceleri": [
+                    "Başmakçı",
+                    "Bayat",
+                    "Bolvadin",
+                    "Çay",
+                    "Çobanlar",
+                    "Dazkırı",
+                    "Dinar",
+                    "Emirdağ",
+                    "Evciler",
+                    "Hocalar",
+                    "İhsaniye",
+                    "İscehisar",
+                    "Kızılören",
+                    "Merkez",
+                    "Sandıklı",
+                    "Sinanpaşa",
+                    "Sultandağı",
+                    "Şuhut"
+                ]
+            },
+            {
+                "il": "Ağrı",
+                "plaka": 4,
+                "ilceleri": [
+                    "Diyadin",
+                    "Doğubayazıt",
+                    "Eleşkirt",
+                    "Hamur",
+                    "Merkez",
+                    "Patnos",
+                    "Taşlıçay",
+                    "Tutak"
+                ]
+            },
+            {
+                "il": "Amasya",
+                "plaka": 5,
+                "ilceleri": [
+                    "Göynücek",
+                    "Gümüşhacıköy",
+                    "Hamamözü",
+                    "Merkez",
+                    "Merzifon",
+                    "Suluova",
+                    "Taşova"
+                ]
+            },
+            {
+                "il": "Ankara",
+                "plaka": 6,
+                "ilceleri": [
+                    "Altındağ",
+                    "Ayaş",
+                    "Bala",
+                    "Beypazarı",
+                    "Çamlıdere",
+                    "Çankaya",
+                    "Çubuk",
+                    "Elmadağ",
+                    "Güdül",
+                    "Haymana",
+                    "Kalecik",
+                    "Kızılcahamam",
+                    "Nallıhan",
+                    "Polatlı",
+                    "Şereflikoçhisar",
+                    "Yenimahalle",
+                    "Gölbaşı",
+                    "Keçiören",
+                    "Mamak",
+                    "Sincan",
+                    "Kazan",
+                    "Akyurt",
+                    "Etimesgut",
+                    "Evren",
+                    "Pursaklar"
+                ]
+            },
+            {
+                "il": "Antalya",
+                "plaka": 7,
+                "ilceleri": [
+                    "Akseki",
+                    "Alanya",
+                    "Elmalı",
+                    "Finike",
+                    "Gazipaşa",
+                    "Gündoğmuş",
+                    "Kaş",
+                    "Korkuteli",
+                    "Kumluca",
+                    "Manavgat",
+                    "Serik",
+                    "Demre",
+                    "İbradı",
+                    "Kemer",
+                    "Aksu",
+                    "Döşemealtı",
+                    "Kepez",
+                    "Konyaaltı",
+                    "Muratpaşa"
+                ]
+            },
+            {
+                "il": "Artvin",
+                "plaka": 8,
+                "ilceleri": [
+                    "Ardanuç",
+                    "Arhavi",
+                    "Merkez",
+                    "Borçka",
+                    "Hopa",
+                    "Şavşat",
+                    "Yusufeli",
+                    "Murgul"
+                ]
+            },
+            {
+                "il": "Aydın",
+                "plaka": 9,
+                "ilceleri": [
+                    "Merkez",
+                    "Bozdoğan",
+                    "Efeler",
+                    "Çine",
+                    "Germencik",
+                    "Karacasu",
+                    "Koçarlı",
+                    "Kuşadası",
+                    "Kuyucak",
+                    "Nazilli",
+                    "Söke",
+                    "Sultanhisar",
+                    "Yenipazar",
+                    "Buharkent",
+                    "İncirliova",
+                    "Karpuzlu",
+                    "Köşk",
+                    "Didim"
+                ]
+            },
+            {
+                "il": "Balıkesir",
+                "plaka": 10,
+                "ilceleri": [
+                    "Altıeylül",
+                    "Ayvalık",
+                    "Merkez",
+                    "Balya",
+                    "Bandırma",
+                    "Bigadiç",
+                    "Burhaniye",
+                    "Dursunbey",
+                    "Edremit",
+                    "Erdek",
+                    "Gönen",
+                    "Havran",
+                    "İvrindi",
+                    "Karesi",
+                    "Kepsut",
+                    "Manyas",
+                    "Savaştepe",
+                    "Sındırgı",
+                    "Gömeç",
+                    "Susurluk",
+                    "Marmara"
+                ]
+            },
+            {
+                "il": "Bilecik",
+                "plaka": 11,
+                "ilceleri": [
+                    "Merkez",
+                    "Bozüyük",
+                    "Gölpazarı",
+                    "Osmaneli",
+                    "Pazaryeri",
+                    "Söğüt",
+                    "Yenipazar",
+                    "İnhisar"
+                ]
+            },
+            {
+                "il": "Bingöl",
+                "plaka": 12,
+                "ilceleri": [
+                    "Merkez",
+                    "Genç",
+                    "Karlıova",
+                    "Kiğı",
+                    "Solhan",
+                    "Adaklı",
+                    "Yayladere",
+                    "Yedisu"
+                ]
+            },
+            {
+                "il": "Bitlis",
+                "plaka": 13,
+                "ilceleri": [
+                    "Adilcevaz",
+                    "Ahlat",
+                    "Merkez",
+                    "Hizan",
+                    "Mutki",
+                    "Tatvan",
+                    "Güroymak"
+                ]
+            },
+            {
+                "il": "Bolu",
+                "plaka": 14,
+                "ilceleri": [
+                    "Merkez",
+                    "Gerede",
+                    "Göynük",
+                    "Kıbrıscık",
+                    "Mengen",
+                    "Mudurnu",
+                    "Seben",
+                    "Dörtdivan",
+                    "Yeniçağa"
+                ]
+            },
+            {
+                "il": "Burdur",
+                "plaka": 15,
+                "ilceleri": [
+                    "Ağlasun",
+                    "Bucak",
+                    "Merkez",
+                    "Gölhisar",
+                    "Tefenni",
+                    "Yeşilova",
+                    "Karamanlı",
+                    "Kemer",
+                    "Altınyayla",
+                    "Çavdır",
+                    "Çeltikçi"
+                ]
+            },
+            {
+                "il": "Bursa",
+                "plaka": 16,
+                "ilceleri": [
+                    "Gemlik",
+                    "İnegöl",
+                    "İznik",
+                    "Karacabey",
+                    "Keles",
+                    "Mudanya",
+                    "Mustafakemalpaşa",
+                    "Orhaneli",
+                    "Orhangazi",
+                    "Yenişehir",
+                    "Büyükorhan",
+                    "Harmancık",
+                    "Nilüfer",
+                    "Osmangazi",
+                    "Yıldırım",
+                    "Gürsu",
+                    "Kestel"
+                ]
+            },
+            {
+                "il": "Çanakkale",
+                "plaka": 17,
+                "ilceleri": [
+                    "Ayvacık",
+                    "Bayramiç",
+                    "Biga",
+                    "Bozcaada",
+                    "Çan",
+                    "Merkez",
+                    "Eceabat",
+                    "Ezine",
+                    "Gelibolu",
+                    "Gökçeada",
+                    "Lapseki",
+                    "Yenice"
+                ]
+            },
+            {
+                "il": "Çankırı",
+                "plaka": 18,
+                "ilceleri": [
+                    "Merkez",
+                    "Çerkeş",
+                    "Eldivan",
+                    "Ilgaz",
+                    "Kurşunlu",
+                    "Orta",
+                    "Şabanözü",
+                    "Yapraklı",
+                    "Atkaracalar",
+                    "Kızılırmak",
+                    "Bayramören",
+                    "Korgun"
+                ]
+            },
+            {
+                "il": "Çorum",
+                "plaka": 19,
+                "ilceleri": [
+                    "Alaca",
+                    "Bayat",
+                    "Merkez",
+                    "İskilip",
+                    "Kargı",
+                    "Mecitözü",
+                    "Ortaköy",
+                    "Osmancık",
+                    "Sungurlu",
+                    "Boğazkale",
+                    "Uğurludağ",
+                    "Dodurga",
+                    "Laçin",
+                    "Oğuzlar"
+                ]
+            },
+            {
+                "il": "Denizli",
+                "plaka": 20,
+                "ilceleri": [
+                    "Acıpayam",
+                    "Buldan",
+                    "Çal",
+                    "Çameli",
+                    "Çardak",
+                    "Çivril",
+                    "Merkez",
+                    "Merkezefendi",
+                    "Pamukkale",
+                    "Güney",
+                    "Kale",
+                    "Sarayköy",
+                    "Tavas",
+                    "Babadağ",
+                    "Bekilli",
+                    "Honaz",
+                    "Serinhisar",
+                    "Baklan",
+                    "Beyağaç",
+                    "Bozkurt"
+                ]
+            },
+            {
+                "il": "Diyarbakır",
+                "plaka": 21,
+                "ilceleri": [
+                    "Kocaköy",
+                    "Çermik",
+                    "Çınar",
+                    "Çüngüş",
+                    "Dicle",
+                    "Ergani",
+                    "Hani",
+                    "Hazro",
+                    "Kulp",
+                    "Lice",
+                    "Silvan",
+                    "Eğil",
+                    "Bağlar",
+                    "Kayapınar",
+                    "Sur",
+                    "Yenişehir",
+                    "Bismil"
+                ]
+            },
+            {
+                "il": "Edirne",
+                "plaka": 22,
+                "ilceleri": [
+                    "Merkez",
+                    "Enez",
+                    "Havsa",
+                    "İpsala",
+                    "Keşan",
+                    "Lalapaşa",
+                    "Meriç",
+                    "Uzunköprü",
+                    "Süloğlu"
+                ]
+            },
+            {
+                "il": "Elazığ",
+                "plaka": 23,
+                "ilceleri": [
+                    "Ağın",
+                    "Baskil",
+                    "Merkez",
+                    "Karakoçan",
+                    "Keban",
+                    "Maden",
+                    "Palu",
+                    "Sivrice",
+                    "Arıcak",
+                    "Kovancılar",
+                    "Alacakaya"
+                ]
+            },
+            {
+                "il": "Erzincan",
+                "plaka": 24,
+                "ilceleri": [
+                    "Çayırlı",
+                    "Merkez",
+                    "İliç",
+                    "Kemah",
+                    "Kemaliye",
+                    "Refahiye",
+                    "Tercan",
+                    "Üzümlü",
+                    "Otlukbeli"
+                ]
+            },
+            {
+                "il": "Erzurum",
+                "plaka": 25,
+                "ilceleri": [
+                    "Aşkale",
+                    "Çat",
+                    "Hınıs",
+                    "Horasan",
+                    "İspir",
+                    "Karayazı",
+                    "Narman",
+                    "Oltu",
+                    "Olur",
+                    "Pasinler",
+                    "Şenkaya",
+                    "Tekman",
+                    "Tortum",
+                    "Karaçoban",
+                    "Uzundere",
+                    "Pazaryolu",
+                    "Köprüköy",
+                    "Palandöken",
+                    "Yakutiye",
+                    "Aziziye"
+                ]
+            },
+            {
+                "il": "Eskişehir",
+                "plaka": 26,
+                "ilceleri": [
+                    "Çifteler",
+                    "Mahmudiye",
+                    "Mihalıççık",
+                    "Sarıcakaya",
+                    "Seyitgazi",
+                    "Sivrihisar",
+                    "Alpu",
+                    "Beylikova",
+                    "İnönü",
+                    "Günyüzü",
+                    "Han",
+                    "Mihalgazi",
+                    "Odunpazarı",
+                    "Tepebaşı"
+                ]
+            },
+            {
+                "il": "Gaziantep",
+                "plaka": 27,
+                "ilceleri": [
+                    "Araban",
+                    "İslahiye",
+                    "Nizip",
+                    "Oğuzeli",
+                    "Yavuzeli",
+                    "Şahinbey",
+                    "Şehitkamil",
+                    "Karkamış",
+                    "Nurdağı"
+                ]
+            },
+            {
+                "il": "Giresun",
+                "plaka": 28,
+                "ilceleri": [
+                    "Alucra",
+                    "Bulancak",
+                    "Dereli",
+                    "Espiye",
+                    "Eynesil",
+                    "Merkez",
+                    "Görele",
+                    "Keşap",
+                    "Şebinkarahisar",
+                    "Tirebolu",
+                    "Piraziz",
+                    "Yağlıdere",
+                    "Çamoluk",
+                    "Çanakçı",
+                    "Doğankent",
+                    "Güce"
+                ]
+            },
+            {
+                "il": "Gümüşhane",
+                "plaka": 29,
+                "ilceleri": [
+                    "Merkez",
+                    "Kelkit",
+                    "Şiran",
+                    "Torul",
+                    "Köse",
+                    "Kürtün"
+                ]
+            },
+            {
+                "il": "Hakkari",
+                "plaka": 30,
+                "ilceleri": [
+                    "Çukurca",
+                    "Merkez",
+                    "Şemdinli",
+                    "Yüksekova"
+                ]
+            },
+            {
+                "il": "Hatay",
+                "plaka": 31,
+                "ilceleri": [
+                    "Altınözü",
+                    "Arsuz",
+                    "Defne",
+                    "Dörtyol",
+                    "Hassa",
+                    "Antakya",
+                    "İskenderun",
+                    "Kırıkhan",
+                    "Payas",
+                    "Reyhanlı",
+                    "Samandağ",
+                    "Yayladağı",
+                    "Erzin",
+                    "Belen",
+                    "Kumlu"
+                ]
+            },
+            {
+                "il": "Isparta",
+                "plaka": 32,
+                "ilceleri": [
+                    "Atabey",
+                    "Eğirdir",
+                    "Gelendost",
+                    "Merkez",
+                    "Keçiborlu",
+                    "Senirkent",
+                    "Sütçüler",
+                    "Şarkikaraağaç",
+                    "Uluborlu",
+                    "Yalvaç",
+                    "Aksu",
+                    "Gönen",
+                    "Yenişarbademli"
+                ]
+            },
+            {
+                "il": "Mersin",
+                "plaka": 33,
+                "ilceleri": [
+                    "Anamur",
+                    "Erdemli",
+                    "Gülnar",
+                    "Mut",
+                    "Silifke",
+                    "Tarsus",
+                    "Aydıncık",
+                    "Bozyazı",
+                    "Çamlıyayla",
+                    "Akdeniz",
+                    "Mezitli",
+                    "Toroslar",
+                    "Yenişehir"
+                ]
+            },
+            {
+                "il": "İstanbul",
+                "plaka": 34,
+                "ilceleri": [
+                    "Adalar",
+                    "Bakırköy",
+                    "Beşiktaş",
+                    "Beykoz",
+                    "Beyoğlu",
+                    "Çatalca",
+                    "Eyüp",
+                    "Fatih",
+                    "Gaziosmanpaşa",
+                    "Kadıköy",
+                    "Kartal",
+                    "Sarıyer",
+                    "Silivri",
+                    "Şile",
+                    "Şişli",
+                    "Üsküdar",
+                    "Zeytinburnu",
+                    "Büyükçekmece",
+                    "Kağıthane",
+                    "Küçükçekmece",
+                    "Pendik",
+                    "Ümraniye",
+                    "Bayrampaşa",
+                    "Avcılar",
+                    "Bağcılar",
+                    "Bahçelievler",
+                    "Güngören",
+                    "Maltepe",
+                    "Sultanbeyli",
+                    "Tuzla",
+                    "Esenler",
+                    "Arnavutköy",
+                    "Ataşehir",
+                    "Başakşehir",
+                    "Beylikdüzü",
+                    "Çekmeköy",
+                    "Esenyurt",
+                    "Sancaktepe",
+                    "Sultangazi"
+                ]
+            },
+            {
+                "il": "İzmir",
+                "plaka": 35,
+                "ilceleri": [
+                    "Aliağa",
+                    "Bayındır",
+                    "Bergama",
+                    "Bornova",
+                    "Çeşme",
+                    "Dikili",
+                    "Foça",
+                    "Karaburun",
+                    "Karşıyaka",
+                    "Kemalpaşa",
+                    "Kınık",
+                    "Kiraz",
+                    "Menemen",
+                    "Ödemiş",
+                    "Seferihisar",
+                    "Selçuk",
+                    "Tire",
+                    "Torbalı",
+                    "Urla",
+                    "Beydağ",
+                    "Buca",
+                    "Konak",
+                    "Menderes",
+                    "Balçova",
+                    "Çiğli",
+                    "Gaziemir",
+                    "Narlıdere",
+                    "Güzelbahçe",
+                    "Bayraklı",
+                    "Karabağlar"
+                ]
+            },
+            {
+                "il": "Kars",
+                "plaka": 36,
+                "ilceleri": [
+                    "Arpaçay",
+                    "Digor",
+                    "Kağızman",
+                    "Merkez",
+                    "Sarıkamış",
+                    "Selim",
+                    "Susuz",
+                    "Akyaka"
+                ]
+            },
+            {
+                "il": "Kastamonu",
+                "plaka": 37,
+                "ilceleri": [
+                    "Abana",
+                    "Araç",
+                    "Azdavay",
+                    "Bozkurt",
+                    "Cide",
+                    "Çatalzeytin",
+                    "Daday",
+                    "Devrekani",
+                    "İnebolu",
+                    "Merkez",
+                    "Küre",
+                    "Taşköprü",
+                    "Tosya",
+                    "İhsangazi",
+                    "Pınarbaşı",
+                    "Şenpazar",
+                    "Ağlı",
+                    "Doğanyurt",
+                    "Hanönü",
+                    "Seydiler"
+                ]
+            },
+            {
+                "il": "Kayseri",
+                "plaka": 38,
+                "ilceleri": [
+                    "Bünyan",
+                    "Develi",
+                    "Felahiye",
+                    "İncesu",
+                    "Pınarbaşı",
+                    "Sarıoğlan",
+                    "Sarız",
+                    "Tomarza",
+                    "Yahyalı",
+                    "Yeşilhisar",
+                    "Akkışla",
+                    "Talas",
+                    "Kocasinan",
+                    "Melikgazi",
+                    "Hacılar",
+                    "Özvatan"
+                ]
+            },
+            {
+                "il": "Kırklareli",
+                "plaka": 39,
+                "ilceleri": [
+                    "Babaeski",
+                    "Demirköy",
+                    "Merkez",
+                    "Kofçaz",
+                    "Lüleburgaz",
+                    "Pehlivanköy",
+                    "Pınarhisar",
+                    "Vize"
+                ]
+            },
+            {
+                "il": "Kırşehir",
+                "plaka": 40,
+                "ilceleri": [
+                    "Çiçekdağı",
+                    "Kaman",
+                    "Merkez",
+                    "Mucur",
+                    "Akpınar",
+                    "Akçakent",
+                    "Boztepe"
+                ]
+            },
+            {
+                "il": "Kocaeli",
+                "plaka": 41,
+                "ilceleri": [
+                    "Gebze",
+                    "Gölcük",
+                    "Kandıra",
+                    "Karamürsel",
+                    "Körfez",
+                    "Derince",
+                    "Başiskele",
+                    "Çayırova",
+                    "Darıca",
+                    "Dilovası",
+                    "İzmit",
+                    "Kartepe"
+                ]
+            },
+            {
+                "il": "Konya",
+                "plaka": 42,
+                "ilceleri": [
+                    "Akşehir",
+                    "Beyşehir",
+                    "Bozkır",
+                    "Cihanbeyli",
+                    "Çumra",
+                    "Doğanhisar",
+                    "Ereğli",
+                    "Hadim",
+                    "Ilgın",
+                    "Kadınhanı",
+                    "Karapınar",
+                    "Kulu",
+                    "Sarayönü",
+                    "Seydişehir",
+                    "Yunak",
+                    "Akören",
+                    "Altınekin",
+                    "Derebucak",
+                    "Hüyük",
+                    "Karatay",
+                    "Meram",
+                    "Selçuklu",
+                    "Taşkent",
+                    "Ahırlı",
+                    "Çeltik",
+                    "Derbent",
+                    "Emirgazi",
+                    "Güneysınır",
+                    "Halkapınar",
+                    "Tuzlukçu",
+                    "Yalıhüyük"
+                ]
+            },
+            {
+                "il": "Kütahya",
+                "plaka": 43,
+                "ilceleri": [
+                    "Altıntaş",
+                    "Domaniç",
+                    "Emet",
+                    "Gediz",
+                    "Merkez",
+                    "Simav",
+                    "Tavşanlı",
+                    "Aslanapa",
+                    "Dumlupınar",
+                    "Hisarcık",
+                    "Şaphane",
+                    "Çavdarhisar",
+                    "Pazarlar"
+                ]
+            },
+            {
+                "il": "Malatya",
+                "plaka": 44,
+                "ilceleri": [
+                    "Akçadağ",
+                    "Arapgir",
+                    "Arguvan",
+                    "Darende",
+                    "Doğanşehir",
+                    "Hekimhan",
+                    "Merkez",
+                    "Pütürge",
+                    "Yeşilyurt",
+                    "Battalgazi",
+                    "Doğanyol",
+                    "Kale",
+                    "Kuluncak",
+                    "Yazıhan"
+                ]
+            },
+            {
+                "il": "Manisa",
+                "plaka": 45,
+                "ilceleri": [
+                    "Akhisar",
+                    "Alaşehir",
+                    "Demirci",
+                    "Gördes",
+                    "Kırkağaç",
+                    "Kula",
+                    "Merkez",
+                    "Salihli",
+                    "Sarıgöl",
+                    "Saruhanlı",
+                    "Selendi",
+                    "Soma",
+                    "Şehzadeler",
+                    "Yunusemre",
+                    "Turgutlu",
+                    "Ahmetli",
+                    "Gölmarmara",
+                    "Köprübaşı"
+                ]
+            },
+            {
+                "il": "Kahramanmaraş",
+                "plaka": 46,
+                "ilceleri": [
+                    "Afşin",
+                    "Andırın",
+                    "Dulkadiroğlu",
+                    "Onikişubat",
+                    "Elbistan",
+                    "Göksun",
+                    "Merkez",
+                    "Pazarcık",
+                    "Türkoğlu",
+                    "Çağlayancerit",
+                    "Ekinözü",
+                    "Nurhak"
+                ]
+            },
+            {
+                "il": "Mardin",
+                "plaka": 47,
+                "ilceleri": [
+                    "Derik",
+                    "Kızıltepe",
+                    "Artuklu",
+                    "Merkez",
+                    "Mazıdağı",
+                    "Midyat",
+                    "Nusaybin",
+                    "Ömerli",
+                    "Savur",
+                    "Dargeçit",
+                    "Yeşilli"
+                ]
+            },
+            {
+                "il": "Muğla",
+                "plaka": 48,
+                "ilceleri": [
+                    "Bodrum",
+                    "Datça",
+                    "Fethiye",
+                    "Köyceğiz",
+                    "Marmaris",
+                    "Menteşe",
+                    "Milas",
+                    "Ula",
+                    "Yatağan",
+                    "Dalaman",
+                    "Seydikemer",
+                    "Ortaca",
+                    "Kavaklıdere"
+                ]
+            },
+            {
+                "il": "Muş",
+                "plaka": 49,
+                "ilceleri": [
+                    "Bulanık",
+                    "Malazgirt",
+                    "Merkez",
+                    "Varto",
+                    "Hasköy",
+                    "Korkut"
+                ]
+            },
+            {
+                "il": "Nevşehir",
+                "plaka": 50,
+                "ilceleri": [
+                    "Avanos",
+                    "Derinkuyu",
+                    "Gülşehir",
+                    "Hacıbektaş",
+                    "Kozaklı",
+                    "Merkez",
+                    "Ürgüp",
+                    "Acıgöl"
+                ]
+            },
+            {
+                "il": "Niğde",
+                "plaka": 51,
+                "ilceleri": [
+                    "Bor",
+                    "Çamardı",
+                    "Merkez",
+                    "Ulukışla",
+                    "Altunhisar",
+                    "Çiftlik"
+                ]
+            },
+            {
+                "il": "Ordu",
+                "plaka": 52,
+                "ilceleri": [
+                    "Akkuş",
+                    "Altınordu",
+                    "Aybastı",
+                    "Fatsa",
+                    "Gölköy",
+                    "Korgan",
+                    "Kumru",
+                    "Mesudiye",
+                    "Perşembe",
+                    "Ulubey",
+                    "Ünye",
+                    "Gülyalı",
+                    "Gürgentepe",
+                    "Çamaş",
+                    "Çatalpınar",
+                    "Çaybaşı",
+                    "İkizce",
+                    "Kabadüz",
+                    "Kabataş"
+                ]
+            },
+            {
+                "il": "Rize",
+                "plaka": 53,
+                "ilceleri": [
+                    "Ardeşen",
+                    "Çamlıhemşin",
+                    "Çayeli",
+                    "Fındıklı",
+                    "İkizdere",
+                    "Kalkandere",
+                    "Pazar",
+                    "Merkez",
+                    "Güneysu",
+                    "Derepazarı",
+                    "Hemşin",
+                    "İyidere"
+                ]
+            },
+            {
+                "il": "Sakarya",
+                "plaka": 54,
+                "ilceleri": [
+                    "Akyazı",
+                    "Geyve",
+                    "Hendek",
+                    "Karasu",
+                    "Kaynarca",
+                    "Sapanca",
+                    "Kocaali",
+                    "Pamukova",
+                    "Taraklı",
+                    "Ferizli",
+                    "Karapürçek",
+                    "Söğütlü",
+                    "Adapazarı",
+                    "Arifiye",
+                    "Erenler",
+                    "Serdivan"
+                ]
+            },
+            {
+                "il": "Samsun",
+                "plaka": 55,
+                "ilceleri": [
+                    "Alaçam",
+                    "Bafra",
+                    "Çarşamba",
+                    "Havza",
+                    "Kavak",
+                    "Ladik",
+                    "Terme",
+                    "Vezirköprü",
+                    "Asarcık",
+                    "Ondokuzmayıs",
+                    "Salıpazarı",
+                    "Tekkeköy",
+                    "Ayvacık",
+                    "Yakakent",
+                    "Atakum",
+                    "Canik",
+                    "İlkadım"
+                ]
+            },
+            {
+                "il": "Siirt",
+                "plaka": 56,
+                "ilceleri": [
+                    "Baykan",
+                    "Eruh",
+                    "Kurtalan",
+                    "Pervari",
+                    "Merkez",
+                    "Şirvan",
+                    "Tillo"
+                ]
+            },
+            {
+                "il": "Sinop",
+                "plaka": 57,
+                "ilceleri": [
+                    "Ayancık",
+                    "Boyabat",
+                    "Durağan",
+                    "Erfelek",
+                    "Gerze",
+                    "Merkez",
+                    "Türkeli",
+                    "Dikmen",
+                    "Saraydüzü"
+                ]
+            },
+            {
+                "il": "Sivas",
+                "plaka": 58,
+                "ilceleri": [
+                    "Divriği",
+                    "Gemerek",
+                    "Gürün",
+                    "Hafik",
+                    "İmranlı",
+                    "Kangal",
+                    "Koyulhisar",
+                    "Merkez",
+                    "Suşehri",
+                    "Şarkışla",
+                    "Yıldızeli",
+                    "Zara",
+                    "Akıncılar",
+                    "Altınyayla",
+                    "Doğanşar",
+                    "Gölova",
+                    "Ulaş"
+                ]
+            },
+            {
+                "il": "Tekirdağ",
+                "plaka": 59,
+                "ilceleri": [
+                    "Çerkezköy",
+                    "Çorlu",
+                    "Ergene",
+                    "Hayrabolu",
+                    "Malkara",
+                    "Muratlı",
+                    "Saray",
+                    "Süleymanpaşa",
+                    "Kapaklı",
+                    "Şarköy",
+                    "Marmaraereğlisi"
+                ]
+            },
+            {
+                "il": "Tokat",
+                "plaka": 60,
+                "ilceleri": [
+                    "Almus",
+                    "Artova",
+                    "Erbaa",
+                    "Niksar",
+                    "Reşadiye",
+                    "Merkez",
+                    "Turhal",
+                    "Zile",
+                    "Pazar",
+                    "Yeşilyurt",
+                    "Başçiftlik",
+                    "Sulusaray"
+                ]
+            },
+            {
+                "il": "Trabzon",
+                "plaka": 61,
+                "ilceleri": [
+                    "Akçaabat",
+                    "Araklı",
+                    "Arsin",
+                    "Çaykara",
+                    "Maçka",
+                    "Of",
+                    "Ortahisar",
+                    "Sürmene",
+                    "Tonya",
+                    "Vakfıkebir",
+                    "Yomra",
+                    "Beşikdüzü",
+                    "Şalpazarı",
+                    "Çarşıbaşı",
+                    "Dernekpazarı",
+                    "Düzköy",
+                    "Hayrat",
+                    "Köprübaşı"
+                ]
+            },
+            {
+                "il": "Tunceli",
+                "plaka": 62,
+                "ilceleri": [
+                    "Çemişgezek",
+                    "Hozat",
+                    "Mazgirt",
+                    "Nazımiye",
+                    "Ovacık",
+                    "Pertek",
+                    "Pülümür",
+                    "Merkez"
+                ]
+            },
+            {
+                "il": "Şanlıurfa",
+                "plaka": 63,
+                "ilceleri": [
+                    "Akçakale",
+                    "Birecik",
+                    "Bozova",
+                    "Ceylanpınar",
+                    "Eyyübiye",
+                    "Halfeti",
+                    "Haliliye",
+                    "Hilvan",
+                    "Karaköprü",
+                    "Siverek",
+                    "Suruç",
+                    "Viranşehir",
+                    "Harran"
+                ]
+            },
+            {
+                "il": "Uşak",
+                "plaka": 64,
+                "ilceleri": [
+                    "Banaz",
+                    "Eşme",
+                    "Karahallı",
+                    "Sivaslı",
+                    "Ulubey",
+                    "Merkez"
+                ]
+            },
+            {
+                "il": "Van",
+                "plaka": 65,
+                "ilceleri": [
+                    "Başkale",
+                    "Çatak",
+                    "Erciş",
+                    "Gevaş",
+                    "Gürpınar",
+                    "İpekyolu",
+                    "Muradiye",
+                    "Özalp",
+                    "Tuşba",
+                    "Bahçesaray",
+                    "Çaldıran",
+                    "Edremit",
+                    "Saray"
+                ]
+            },
+            {
+                "il": "Yozgat",
+                "plaka": 66,
+                "ilceleri": [
+                    "Akdağmadeni",
+                    "Boğazlıyan",
+                    "Çayıralan",
+                    "Çekerek",
+                    "Sarıkaya",
+                    "Sorgun",
+                    "Şefaatli",
+                    "Yerköy",
+                    "Merkez",
+                    "Aydıncık",
+                    "Çandır",
+                    "Kadışehri",
+                    "Saraykent",
+                    "Yenifakılı"
+                ]
+            },
+            {
+                "il": "Zonguldak",
+                "plaka": 67,
+                "ilceleri": [
+                    "Çaycuma",
+                    "Devrek",
+                    "Ereğli",
+                    "Merkez",
+                    "Alaplı",
+                    "Gökçebey"
+                ]
+            },
+            {
+                "il": "Aksaray",
+                "plaka": 68,
+                "ilceleri": [
+                    "Ağaçören",
+                    "Eskil",
+                    "Gülağaç",
+                    "Güzelyurt",
+                    "Merkez",
+                    "Ortaköy",
+                    "Sarıyahşi"
+                ]
+            },
+            {
+                "il": "Bayburt",
+                "plaka": 69,
+                "ilceleri": [
+                    "Merkez",
+                    "Aydıntepe",
+                    "Demirözü"
+                ]
+            },
+            {
+                "il": "Karaman",
+                "plaka": 70,
+                "ilceleri": [
+                    "Ermenek",
+                    "Merkez",
+                    "Ayrancı",
+                    "Kazımkarabekir",
+                    "Başyayla",
+                    "Sarıveliler"
+                ]
+            },
+            {
+                "il": "Kırıkkale",
+                "plaka": 71,
+                "ilceleri": [
+                    "Delice",
+                    "Keskin",
+                    "Merkez",
+                    "Sulakyurt",
+                    "Bahşili",
+                    "Balışeyh",
+                    "Çelebi",
+                    "Karakeçili",
+                    "Yahşihan"
+                ]
+            },
+            {
+                "il": "Batman",
+                "plaka": 72,
+                "ilceleri": [
+                    "Merkez",
+                    "Beşiri",
+                    "Gercüş",
+                    "Kozluk",
+                    "Sason",
+                    "Hasankeyf"
+                ]
+            },
+            {
+                "il": "Şırnak",
+                "plaka": 73,
+                "ilceleri": [
+                    "Beytüşşebap",
+                    "Cizre",
+                    "İdil",
+                    "Silopi",
+                    "Merkez",
+                    "Uludere",
+                    "Güçlükonak"
+                ]
+            },
+            {
+                "il": "Bartın",
+                "plaka": 74,
+                "ilceleri": [
+                    "Merkez",
+                    "Kurucaşile",
+                    "Ulus",
+                    "Amasra"
+                ]
+            },
+            {
+                "il": "Ardahan",
+                "plaka": 75,
+                "ilceleri": [
+                    "Merkez",
+                    "Çıldır",
+                    "Göle",
+                    "Hanak",
+                    "Posof",
+                    "Damal"
+                ]
+            },
+            {
+                "il": "Iğdır",
+                "plaka": 76,
+                "ilceleri": [
+                    "Aralık",
+                    "Merkez",
+                    "Tuzluca",
+                    "Karakoyunlu"
+                ]
+            },
+            {
+                "il": "Yalova",
+                "plaka": 77,
+                "ilceleri": [
+                    "Merkez",
+                    "Altınova",
+                    "Armutlu",
+                    "Çınarcık",
+                    "Çiftlikköy",
+                    "Termal"
+                ]
+            },
+            {
+                "il": "Karabük",
+                "plaka": 78,
+                "ilceleri": [
+                    "Eflani",
+                    "Eskipazar",
+                    "Merkez",
+                    "Ovacık",
+                    "Safranbolu",
+                    "Yenice"
+                ]
+            },
+            {
+                "il": "Kilis",
+                "plaka": 79,
+                "ilceleri": [
+                    "Merkez",
+                    "Elbeyli",
+                    "Musabeyli",
+                    "Polateli"
+                ]
+            },
+            {
+                "il": "Osmaniye",
+                "plaka": 80,
+                "ilceleri": [
+                    "Bahçe",
+                    "Kadirli",
+                    "Merkez",
+                    "Düziçi",
+                    "Hasanbeyli",
+                    "Sumbas",
+                    "Toprakkale"
+                ]
+            },
+            {
+                "il": "Düzce",
+                "plaka": 81,
+                "ilceleri": [
+                    "Akçakoca",
+                    "Merkez",
+                    "Yığılca",
+                    "Cumayeri",
+                    "Gölyaka",
+                    "Çilimli",
+                    "Gümüşova",
+                    "Kaynaşlı"
+                ]
+            }
+        ]
+        var min = 0,
+            max = data.length,
+            select = document.getElementById('Iller');
+
+        for (var i = min; i < max; i++) {
+            var opt = document.createElement('option');
+            opt.value = data[i].il;
+            opt.innerHTML = data[i].il;
+            select.appendChild(opt);
+        }
+
+        function selectedIl() {
+            var select = document.getElementById('Iller');
+            var value = select.options[select.selectedIndex].value;
+
+            if (value != 00) {
+                var ilceler = data.find((s) => {
+                    if (s.il == value) {
+                        return s.ilceleri;
+                    }
+
+                });
+                console.log(ilceler);
+
+
+                var min = 0,
+                    max = ilceler.ilceleri.length,
+                    select = document.getElementById('Ilceler'),
+                    ilceler = ilceler.ilceleri;
+
+
+                removeOptions(document.getElementById('Ilceler'));
+
+
+                for (var i = min; i < max; i++) {
+                    var opt = document.createElement('option');
+                    opt.value = ilceler[i];
+                    opt.innerHTML = ilceler[i];
+                    select.appendChild(opt);
+                }
+            }
+            else {
+                console.log(value);
+                select = document.getElementById('Ilceler'),
+                    removeOptions(document.getElementById('Ilceler'));
+                var opt = document.createElement('option');
+                opt.value = "Bir İl Seçiniz";
+                opt.innerHTML = "Bir İl Seçiniz";
+                select.appendChild(opt);
+            }
+
+        }
+
+        function removeOptions(selectElement) {
+            var i, L = selectElement.options.length - 1;
+            for (i = L; i >= 0; i--) {
+                selectElement.remove(i);
+            }
+        }
+
+
+
+    </script>
+    <script>
+        function openShopping() {
+
+            var element = document.getElementById("shoppingBar");
+            var elementIn = document.getElementById("shoppingBarIn");
+            elementIn.classList.remove('animate__bounceOut');
+
+            element.classList.add("shopping-open");
+
+            elementIn.classList.add('animate__bounceIn');
+
+        }
+
+        function closeShopping() {
+
+
+            var element = document.getElementById("shoppingBarIn");
+            var elementIn = document.getElementById("shoppingBar");
+            elementIn.classList.remove('animate__bounceIn');
+            element.classList.add('animate__bounceOut');
+
+            setTimeout(function () {
+
+                elementIn.classList.remove("shopping-open");
+            }, 700);
+        }
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GS68NF5C3F');
+    </script>
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/vendor/jquery.waypoints.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/style-switcher.js"></script>
+</body>
+
+</html>

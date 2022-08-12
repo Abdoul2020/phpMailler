@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/red-gradient.css" id="main_style">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,800" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" rel="stylesheet">
+    <script src="assets/js/vendor/tablesaw.js"></script>
+    <script src="assets/js/vendor/tablesaw-init.js"></script>
+    <title>Hibrit Card</title>
+    <link rel="icon" href="assets/img/Logo_32x32.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+</head>
+
+<body>
+    <!-- popup success -->
+    <div id="popupId" class="payment-popup-global" style="display: none;">
+        <div class="payment-popup-in">
+            <!--  <div onclick="popupClose()" class="popup-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>-->
+            <div class="popup-icon-success">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="popup-header">
+                Ön Sipariş Başarıyla Tamamlandı
+            </div>
+            <div class="popup-text" style="color:red;font-size: 18px;text-decoration: underline;">
+                E-Posta Kutunuzu Kontrol Ediniz
+            </div>
+            <div class="popup-text" style="color:red">
+                Ödeme işleminden sonra e-postanızı dekont eki ile yanıtlayınız.
+
+            </div>
+
+            <div class="payment-detail">
+                <div class="detail-checkbox-container">
+                    <label class="detail-checkbox">
+                        <input  onchange="checkboxController()"
+                            type="checkbox" name="radio">
+                        <span class="checkmark"><a href="/USS"> Uzaktan Satış
+                                Sözleşmesi</a>
+                            okudum,
+                            Kabul ediyorum.*</span>
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="popup-buttons">
+                <div onclick="popupClose()" class="site-btn site-btn--accent" id="sendParttFrom">
+                    Gönder
+                </div>
+
+                <!-- <div onclick="popupClose()" class="site-btn site-btn--light">
+                    Kapat
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- popup success-->
+    <!-- popup eror -->
+    <div id="popupErorId" class="payment-popup-global" style="display: none;">
+        <div class="payment-popup-in">
+            <div onclick="popupErorClose()" class="popup-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="popup-icon-eror">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+            <div class="popup-header">
+                Hatalı Alanları Düzeltiniz
+            </div>
+            <div class="popup-text">
+                Zorunlu alanları doldurmanız ve geçerli bir e-posta hesabı girmeniz gereklidir.
+            </div>
+            <div class="popup-buttons">
+                <div onclick="popupErorClose()" class="site-btn site-btn--accent">
+                    Tamam
+                </div>
+                <!-- <div onclick="popupErorClose()" class="site-btn site-btn--light">
+                Kapat
+            </div>-->
+            </div>
+        </div>
+    </div>
+    <!-- popup eror -->
+    <!--Main menu-->
+    <div class="menu">
+        <div class="container menu__wrapper">
+            <div class="row">
+                <div class="menu__logo menu__item">
+                    <a href="index"><img src="assets/img/hbrt.png" style="width: 150px;" alt="HibritCard"></a>
+                </div>
+                <div class="menu__item d-t-none">
+                    <nav class="menu__center-nav">
+                        <ul>
+                            <li><a href="index" class="link link--gray">Anasayfa</a></li>
+                            <li><a href="features" class="link link--gray">Özellikler</a></li>
+                            <li><a href="buy" class="link link--gray link--gray-active">Satın Al</a></li>
+                            <li><a href="sss" class="link link--gray">S.S.S.</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu__item">
+                    <nav class="menu__right-nav d-l-none">
+                        <ul>
+                            <li><a href="https://panel.hibritcard.com/" class="site-btn site-btn--accent">Giriş Yap</a>
+                            </li>
+                            <!-- <li>
+              <div class="menu__dropdown d-t-none">
+                <a class="link link--gray menu__dropdown-btn">Tr
+                  <span><i class="mdi mdi-chevron-down"></i></span>
+                </a>
+                <div class="menu__dropdown-content">
+                  <a class="link link--gray" href="#">En</a>
+                  <a class="link link--gray" href="#">Fr</a>
+                </div>
+              </div>
+            </li> -->
+                        </ul>
+                    </nav>
+                    <div class="d-none d-t-block">
+                        <button type="button" class="menu__mobile-button">
+                            <span><i class="mdi mdi-menu" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Main menu-->
+
+    <!--Mobile menu-->
+    <div class="mobile-menu d-none d-t-block">
+        <div class="container">
+            <div class="mobile-menu__logo">
+                <a href="index"><img src="assets/img/logo-square.png" style="width: 50px;" alt="HibritCard"></a>
+            </div>
+            <button type="button" class="mobile-menu__close">
+                <span><i class="mdi mdi-close" aria-hidden="true"></i></span>
+            </button>
+            <nav class="mobile-menu__wrapper">
+                <ul class="mobile-menu__ul">
+                    <li class="mobile-menu__ul--collapsed">
+                        <li class="mobile-menu__li "><a href="index" class="link link--dark-gray">Anasayfa</li>
+                    <li class="mobile-menu__li"><a href="features" class="link link--dark-gray">Özellikler</a></li>
+                        <li class="mobile-menu__li"><a href="buy" class="link link--dark-gray">Satın Al</a></li>
+                        <li class="mobile-menu__li"><a href="sss" class="link link--dark-gray">S.S.S</a></li>
+                        <li class="mobile-menu__li"><a href="https://panel.hibritcard.com/" class="site-btn site-btn--accent">Giriş Yap</a></li>
+
+
+                        <!-- <li class="mobile-menu__li mobile-menu__li-collapse"><a class="link link--dark-gray">En
+          <span><i class="mdi mdi-chevron-down"></i></span></a></li>
+        <li class="mobile-menu__ul--collapsed">
+          <ul class="mobile-menu__ul">
+            <li class="mobile-menu__li"><a href="" class="link link--gray link--gray-active">En</a></li>
+            <li class="mobile-menu__li"><a href="" class="link link--gray">Fr</a></li>
+            <li class="mobile-menu__li"><a href="" class="link link--gray">Ch</a></li>
+          </ul>
+        </li> -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mobile menu-->
+
+
+    <!-- <div class="section section--first">
+  <div class="container">
+    <div class="row pricing pricing--toggle">
+      <div class="col-12">
+         <div class="blur-yazi">
+          <h2 class="section__description">HİBRİTCARD <b>SATIŞ</b></h2><br>
+          <h2 class="section__description"><b>ÇOK YAKINDA SİZLERLEYİZ.</b></h2><br>
+        </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+ <section class="blur">  Satış Sayfası Blur Efekti -->
+    <!--Pricing Toggle-->
+    <!-- <div class="section--blur1 section--blur">
+        <div class="container">
+            <div class="row pricing pricing--toggle">
+                <div class="col-12">
+                    <div class="blur-yazi">
+                    </div>
+                </div>
+                <div class="col-4 col-t-12">
+                    <div class="pricing__card card">
+                        <h4 class="pricing__card-title pricing__card-title--accent">Kişisel</h4>
+                        <p>Senin İçin.</p>
+                        <p class="pricing__card-price pricing__card-price--year">$ 228</p>
+                        <p class="pricing__card-price pricing__card-price--month">₺ 250</p>
+                        <p class="pricing__card-price--per-month">$19 billed monthly</p>
+                        <div class="pricing__card-price-save-wrap">
+                            <hr class="pricing__hr">
+                        </div>
+                        <div class="pricing__opportunities">
+                            <p>20 ikon</p>
+                            <p>#</p>
+                            <p>#</p>
+                            <p>Custom domain free</p>
+                            <div class="pricing__opportunities--not-available">
+                                <p>24/7 Customer support</p>
+                            </div>
+                        </div>
+                        <a class="site-btn site-btn--accent">Satın Al</a>
+                    </div>
+                </div>
+                <div class="col-4 col-t-12">
+                    <div class="pricing__card card">
+                        <h4 class="pricing__card-title">Şirket</h4>
+                        <p> Şirketin İçin.</p>
+                        <p class="pricing__card-price pricing__card-price--year">$ 468</p>
+                        <p class="pricing__card-price pricing__card-price--month">₺ 42</p>
+                        <p class="pricing__card-price--per-month">Aylık ₺ 50</p>
+                        <div class="pricing__card-price-save-wrap">
+                            <p class="pricing__card-price-save">Save 20%</p>
+                            <hr class="pricing__hr">
+                        </div>
+                        <div class="pricing__opportunities">
+                            <p>50 pages</p>
+                            <p>500 Gb storage</p>
+                            <p>Donations</p>
+                            <p>Integrated e-commerce</p>
+                            <p>Custom domain free</p>
+                            <p>24/7 Customer support</p>
+                        </div>
+                        <a class="site-btn site-btn--light">Bize Ulaş</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="section__description">
+                        Sigma has plans, from free to paid, that scale with your needs. Subscribe to a plan that fits the size of your business. All plans start with a free 15-day trial.
+                    </p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    </section> -->
+    <!-- Satış Sayfası Blur Efekti -->
+    <!--Pricing Toggle-->
+
+    <!-- new payment part -->
+
+    <!--Form-->
+    <section class="section section--last section--top-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section__title">Ön Sipariş</h3>
+                </div>
+
+            </div>
+
+
+
+            <div class="row form">
+                <div class=" col-12 ">
+                    <iframe name="myframe" id="frame1" style="display:none"></iframe>
+                    <form autocomplete="off" method="POST" action="form.php" src="form.php" class="contact_Form form-mail" enctype="multipart/form-data" target="myframe">
+                        <div class="form__card card form__card--background">
+                            <div class="row">
+                                <div class=" col-7 ">
+                                    <div class="form__wrap-check">
+                                        <h4>Adres Bilgilerini Giriniz</h4>
+                                        <div class="form__form js-form">
+                                            <div class="form__form-group form__form-group--small">
+                                                <label class="form__label">İsminiz</label>
+                                                <input id="nameId" onblur="inputNotNullController('nameId', 'nameIdv')" class="form__input js-field__first-name fname" type="text" placeholder="İsminiz" name="fname">
+                                                <span id="nameIdv" class="form-validation"></span>
+                                            </div>
+                                            <div class="form__form-group form__form-group--small form__form-group--right">
+                                                <label class="form__label">Soyisminiz</label>
+                                                <input id="lastNameId" onblur="inputNotNullController('lastNameId', 'lastNameIdv')" class="form__input js-field__last-name lname" type="text" placeholder="Soyisminiz" name="lname">
+                                                <span id="lastNameIdv" class="form-validation"></span>
+                                            </div>
+                                            <div class="form__form-group form__form-group--small">
+                                                <label class="form__label">İletişim Telefonu</label>
+                                                <input id="phoneNumberId" onblur="inputNotNullController('phoneNumberId', 'phoneNumberIdv')" class="form__input js-field__first-name phoneNumber" type="tel" placeholder="+90" name="phoneNumber">
+                                                <span id="phoneNumberIdv" class="form-validation"></span>
+                                            </div>
+                                            <div class="form__form-group form__form-group--small form__form-group--right">
+                                                <label class="form__label">E-Posta Adresiniz</label>
+                                                <input id="emailAdress1" onblur="EMailController('emailAdress1','emailAdress1v')" class="form__input js-field__last-name email" type="email" placeholder="E-Posta Adresiniz" name="emaill">
+                                                <span id="emailAdress1v" class="form-validation"></span>
+                                            </div>
+
+                                            <!-- özel -->
+                                            <!-- <div class="payment-select-multi">
+                                                <div class=" form__form-group different-adress" style="padding-top: 0;">
+
+                                                    <div class="form__form-group form__form-group">
+                                                        <label class="form__label">İl</label>
+                                                        <select oninput="selectedIl()" id="Iller" class="form__input js-field__first-name city" onchange="" size="1">
+                                                        <option value="00"  >Bir İl Seçiniz</option>
+
+                                                    </select>
+                                                        <span class="form-validation">
+
+                                                    </span>
+                                                    </div>
+
+                                                </div>
+                                                <div class=" form__form-group different-adress" style="padding-top: 0;">
+                                                    <div class="form__form-group form__form-group">
+                                                        <label class="form__label">İlçe</label>
+                                                        <select id="Ilceler" class="form__input js-field__first-name neighberhood" onchange="" size="1">
+                                                        <option value="0">Lütfen önce bir il seçiniz</option>
+
+                                                    </select>
+                                                        <span class="form-validation"></span>
+                                                    </div>
+
+                                                </div>
+
+                                            </div> -->
+                                            <!-- özel -->
+                                            <div class="form__form-group">
+                                                <label class="form__label">Açık Adresiniz</label>
+                                                <textarea id="adressId" onblur="inputNotNullController('adressId', 'adressIdv')" class="form__payment-textarea form__input js-field__email email_2" name="adresiniz"></textarea>
+
+                                                <span id="adressIdv" class="form-validation"></span>
+                                            </div>
+                                            <!-- <div class="form__form-group">
+                                                <label class="form__label">Telefon Numaranız</label>
+                                                <input class="form__input js-field__phone phoneNumber_2" type="text" placeholder="+90" required>
+                                                <span class="form-validation"></span>
+                                            </div> -->
+
+                                            <div class="form__form-group">
+                                                <label class="form__label">Logo Ekle
+                                                    (Dosya boyutu en fazla 20mb olabilir.)
+                                                    
+                                                </label>
+                                                <!-- <input id="fileId" onchange="FileController('fileId','fileIdv')" class="form__input js-field__email" type="file" placeholder="" name="attachment"> -->
+                                                <input class="form__input js-field__email" type="file" placeholder="" name="attachment">
+                                                <!-- <span id="fileIdv" class="form-validation"></span> -->
+                                            </div>
+
+                                            <div class="form__form-group">
+                                                <label class="form__label">Not (Zorunlu Değildir)</label>
+                                                <textarea class="form__payment-textarea form__input js-field__email email_2" name="note"></textarea>
+
+                                                <span id="adressIdv" class="form-validation"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fatura Bilgileri -->
+
+                                    <br> <br>
+                                    <div class="form__wrap-check">
+                                        <h4>Fatura Bilgileri</h4>
+                                        <div class="form__form js-form">
+                                            <div class="form__form-group form__form-group--small">
+                                                <label class="form__label">Fatura Türü</label>
+
+                                                <div class="radio-container">
+                                                    <label class="payment-radio">
+                                                        <input onchange=" bkTab()" id="bid" type="radio"
+                                                            checked="checked" name="invoice-type" value="bireysel"
+                                                            name="bireysel">
+                                                        <span class="checkmark">Bireysel</span>
+                                                    </label>
+                                                    <label class="payment-radio">
+                                                        <input onchange=" bkTab()" id="kid" type="radio"
+                                                            name="invoice-type" value="kurumsal" name="kurumsal">
+                                                        <span class="checkmark">Kurumsal</span>
+                                                    </label>
+
+                                                </div>
+
+                                                <span class="form-validation"></span>
+                                            </div>
+                                            <div class="form__form-group form__form-group--small form__form-group--right">
+
+                                            </div>
+
+                                            <div id="bAreaid" style="flex:1">
+                                                <div class="form__form-group">
+                                                    <label class="form__label">İsim Soyisim</label>
+                                                    <input id="flnameid" onblur="inputNotNullController('flnameid', 'flnameidv')" class="form__input js-field__company lname_2" type="text" name="flname">
+                                                    <span id="flnameidv" class="form-validation"></span>
+                                                </div>
+                                                <div class="form__form-group">
+                                                    <label class="form__label">Tc Kimlik Numarası</label>
+                                                    <input id="tckimlikid" onblur="inputNotNullController('tckimlikid', 'tckimlikidv')" class="form__input js-field__phone tc_kimlik" type="text" name="tckimlik">
+                                                    <span id="tckimlikidv" class="form-validation"></span>
+                                                </div>
+                                                <div class="form__form-group">
+                                                    <label class="form__label">Adres</label>
+                                                    <textarea id="fladressid" onblur="inputNotNullController('fladressid', 'fladressidv')" class="form__payment-textarea form__input js-field__email email_2" name="peaddress"></textarea>
+
+                                                    <span id="fladressidv" class="form-validation"></span>
+                                                </div>
+                                            </div>
+                                            <div id="kAreaid" style="flex:1">
+                                                <div class="form__form-group">
+                                                    <label class="form__label">Firma Unvanı</label>
+                                                    <input id="conameid" onblur="inputNotNullController('conameid', 'conameidv')" class="form__input js-field__company lname_2" type="text" placeholder="" name="coname">
+                                                    <span id="conameidv" class="form-validation"></span>
+                                                </div>
+                                                <div class="form__form-group">
+                                                    <label class="form__label">Vergi Dairesi</label>
+                                                    <input id="covetid" onblur="inputNotNullController('covetid', 'covetidv')" class="form__input js-field__phone tc_kimlik covetid" type="text" placeholder="" name="covet">
+                                                    <span id="covetidv" class="form-validation"></span>
+                                                </div>
+                                                <div class="form__form-group">
+                                                    <label class="form__label">Vergi Numarası</label>
+                                                    <input id="covetnoid" onblur="inputNotNullController('covetnoid', 'covetnoidv')" class="form__input js-field__email email_2 covetnoid" type="number" placeholder="" name="covetno">
+                                                    <span id="covetnoidv" class="form-validation"></span>
+                                                </div>
+                                                <div class="form__form-group">
+                                                    <label class="form__label">Adres</label>
+                                                    <textarea id="coaddressid" onblur="inputNotNullController('coaddressid', 'coaddressidv')" class="form__payment-textarea form__input js-field__email email_2 coaddressid" name="coaddress"></textarea>
+                                                    <span id="coaddressidv" class="form-validation"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class=" col-5 ">
+                                    <div class="form__wrap-check">
+                                        <h4>Sipariş Detayınız</h4>
+
+                                        <div>
+                                            Kart Adeti
+                                        </div>
+                                        <div class="card-select">
+
+                                            <div class="card-item">
+                                                <label class="container">
+                                                    <input onchange="cardSelect()" value="1" type="radio"
+                                                        checked="checked" name="card">
+                                                    <img src="./assets/img/payment/hbrt-single-card.png">
+                                                </label>
+
+                                            </div>
+                                            <div class="card-space"></div>
+                                            <div class="card-item">
+                                                <label class="container">
+                                                    <input onchange="cardSelect()" value="2" type="radio" name="card">
+                                                    <img src="./assets/img/payment/hbrt-couple-card.png">
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-price">
+                                            <div class="price-value"><span id="valuePriceId"></span></div>
+                                        </div>
+
+                                        <div class="form__form js-form">
+
+                                            <div class="payment-detail payment-bank-detail">
+                                                <div class="bank-img"><img src="./assets/img/payment/ziraat-bankasi-logo.png" alt=""></div>
+                                                <div class="bank-detail">
+                                                    <p style="color:#666; "><b style=" color:#666; font-weight:bold;">
+                                                            Ziraat Bankası </b>| Bilkent / Ankara Şubesi</p>
+                                                    <p>Hibritart Medya Reklam A.Ş.</p>
+                                                    <p><b style="color:#666; font-weight:bold;">TR42 0001 0017 6297 4887
+                                                            8550 03</b> </p>
+                                                    <p><b style="color:#666;">Mersis Numarası: </b>0462091073900001
+                                                    </p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="payment-detail">
+                                                Kişisel verileriniz, siparişinizi işleme koymak, bu web sitesindeki deneyiminizi desteklemek ve gizlilik politikamızda açıklanan diğer amaçlar için kullanılacaktır.
+                                            </div>
+
+                                            <div style="border-bottom: 1px solid #ceddf2;" class="payment-detail">
+                                                <div class="detail-checkbox-container">
+                                                    <label class="detail-checkbox">
+                                                        <input id="checkboxKVKKId" onchange="checkboxController()"
+                                                            type="checkbox" name="radio">
+
+                                                        <span class="checkmark"><a href="/KVKK"> KVKK Aydınlatma
+                                                                Metni</a>
+                                                            okudum, Kabul
+                                                            ediyorum. *</span>
+                                                    </label>
+
+                                                </div>
+
+
+                                            </div>
+                                            <div class="payment-detail">
+                                                <div class="detail-checkbox-container">
+                                                    <label class="detail-checkbox">
+                                                        <input id="checkboxUSSId" onchange="checkboxController()"
+                                                            type="checkbox" name="radio">
+
+                                                        <span class="checkmark"><a href="/USS"> Uzaktan Satış
+                                                                Sözleşmesi</a>
+                                                            okudum,
+                                                            Kabul ediyorum.*</span>
+                                                    </label>
+
+                                                </div>
+                                            </div>
+                                            <!-- message shown part -->
+
+                                            <!-- <div>
+                                                <div class="alert alert-warning"> Sending Your Message... </div>
+                                                <div class="alert alert-success">Your message has been successfully delivered.</div>
+                                                <div class="alert alert-danger">Your message has not been delivered!
+                                                    <p class="col-12"><em>Make sure that the information you enter is correct</em></p>
+                                                </div>
+                                            </div> -->
+
+
+                                            <!-- message shown part -->
+
+                                            <div class="payment-detail">
+                                                <!-- <a href="#" class="site-btn site-btn--accent form__submit   btn btn-primary submit btnContact " style="width: 100%;" id="buttonmail">Ön Siparişi Tamamla</a> -->
+
+                                                <input disabled id="submitButton" onclick="formSubmit()" type="submit" value="Ön Siparişi Tamamla" class="disabled-button site-btn site-btn--accent form__submit btn btn-primary submit btnContact" id="buttonmail" style="width: 100%;">
+
+                                            </div>
+                                            <!-- <div onclick="formSubmit()">test button</div> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </section>
+    <!--Form-->
+
+    <!-- end of new part -->
+
+
+    <div class="section section--light background background--clouds"></div>
+
+    <!--Questions-->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section__title">Hibrit Card Ne İşe Yarar?</h3>
+                </div>
+            </div>
+            <div class="row questions">
+                <div class="col-4 col-m-12">
+                    <div class="questions__card card">
+                        <img alt="" src="assets/newimg/bilgi-dot.png" class="questions__icon">
+                        <h4 class="questions__title">Hibrit Card Nedir?</h4>
+                        <p class="questions__answer">HibritCard, yeni tanıştığınız insanlarla paylaşmak istediğiniz kişisel bilgilerinizi tek dokunuşla aktarmaya yarayan dijital kartvizit teknolojisidir.</p>
+                    </div>
+                </div>
+                <div class="col-4 col-m-12">
+                    <div class="questions__card card">
+                        <img alt="" src="assets/newimg/bilgi-dot.png" class="questions__icon">
+                        <h4 class="questions__title">Neden Hibrit Card Kullanmalıyım?</h4>
+                        <p class="questions__answer">Telefon numaranızı değiştirdiniz ama kartvizitiniz de eski numaranız mı var? Korkmayın, HibritCard'a geçmenin tam zamanı. Hem cebinizi hem de doğayı düşünen kart. <br> Daha fazla bilgi için
+                            <a href="features" class="link link--dark-gray"><b>buraya tıklayın</b></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-4 col-m-12">
+                    <div class="questions__card card">
+                        <img alt="" src="assets/newimg/bilgi-dot.png" class="questions__icon">
+                        <h4 class="questions__title">Hibrit Card Hangi Telefonlarda Hizmet Veriyor?</h4>
+                        <p class="questions__answer">
+                            Yalnızca NFC okumayı destekleyen telefonlar HibritCard ile bağlanabilir. Desteklenen cihazlar hakkında<br> daha fazla bilgi için
+                            <a href="nfc" class="link link--dark-gray"><b>buraya tıklayın</b></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="site-btn--center">
+                        <a class="site-btn site-btn--light" href="sss">Daha Fazla Bilgi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Questions-->
+
+    <!--Trusted by-->
+    <section class="section section--last">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section__title">Destekçilerimiz</h3>
+                </div>
+            </div>
+            <div class="row logo logo--bottom-space">
+                <div class="col-2 logo__img-wrap">
+                    <div class="logo__img">
+                        <img alt="" src="assets/img/img_logo_blue_1.png">
+                    </div>
+                </div>
+                <div class="col-2 logo__img-wrap">
+                    <div class="logo__img">
+                        <img alt="" src="assets/img/img_logo_blue_2.png">
+                    </div>
+                </div>
+                <div class="col-2 logo__img-wrap">
+                    <div class="logo__img">
+                        <img alt="" src="assets/img/img_logo_blue_3.png">
+                    </div>
+                </div>
+                <div class="col-2 logo__img-wrap">
+                    <div class="logo__img">
+                        <img alt="" src="assets/img/img_logo_blue_4.png">
+                    </div>
+                </div>
+                <div class="col-2 logo__img-wrap">
+                    <div class="logo__img">
+                        <img alt="" src="assets/img/img_logo_blue_5.png">
+                    </div>
+                </div>
+                <div class="col-2 logo__img-wrap">
+                    <div class="logo__img">
+                        <img alt="" src="assets/img/img_logo_blue_6.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img alt="" class="section__img" src="assets/img/img_backgroud_footer.png">
+    </section>
+    <!--Trusted by-->
+
+    <!-- wp-contact -->
+    <a href="https://api.whatsapp.com/send?phone=905306104278&text=" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <!-- wp-contact -->
+
+
+    <!--Footer menu-->
+    <div class="container footer-menu">
+        <div class="row">
+            <div class="col-12">
+                <a href="index">
+                    <img src="assets/img/logo-square.png" style="width:40px;">
+                </a>
+                <nav class="footer-menu__nav">
+                    <ul>
+                        <li><a href="https://panel.hibritcard.com/" class="link link--gray">Giriş Yap</a></li>
+                        <li><a href="sss" class="link link--gray">SSS</a></li>
+                        <!-- <li><a href="privacy" class="link link--gray">Aydınlatma Metni</a></li> -->
+                    </ul>
+                </nav>
+                <p class="footer-menu__social">
+                    <a class="link link--gray" href="https://twitter.com/hibritcard">
+                        <i class="mdi mdi-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.facebook.com/hibritcard/">
+                        <i class="mdi mdi-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.instagram.com/hibritcard/">
+                        <i class="mdi mdi-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.linkedin.com/company/hibritcard/">
+                        <i class="mdi mdi-instagram" aria-hidden="true"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--Footer menu-->
+
+    <hr>
+
+    <!--Footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p style="font-weight: 500;">Copyright © 2021 <strong style="font-weight: 700;">HibritCard</strong><br> Design and Development by
+                        <a style="text-decoration: none; color:#fdd140" target="_blank" href="https://www.hibritmedya.com.tr">Hibrit Medya A.Ş.</a> All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS68NF5C3F"></script>
+    <script>
+        cardSelect();
+
+        function cardSelect() {
+            if (document.querySelector('input[name="card"]:checked').value == 1) {
+                document.getElementById("valuePriceId").innerHTML = "Tek Kart Seçimi: <b>399</b>₺";
+            } else if (document.querySelector('input[name="card"]:checked').value == 2) {
+                document.getElementById("valuePriceId").innerHTML = "Çift Kart Seçimi: <b>699</b>₺" + " <span style='color: #d9d9d9'>(Aynı karttan iki adet hazırlanır.)</span>";
+            }
+
+
+        }
+
+        function EMailController(inputIdName, validationIdName) {
+            let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var emailAdress1 = document.getElementById(inputIdName);
+            var emailAdress1v = document.getElementById(validationIdName);
+
+            if (inputNotNullController(inputIdName, validationIdName)) {
+                if (emailAdress1.value.match(regexEmail)) {
+                    emailAdress1v.innerText = "";
+                    emailAdress1.classList.remove("form-eror");
+                    return true;
+                } else {
+                    emailAdress1v.innerText = "E mail formatı hatalı";
+                    emailAdress1.classList.add("form-eror");
+                    return false;
+                }
+            }
+        }
+
+        function FileController(inputIdName, validationIdName) {
+
+            var fileInput = document.getElementById(inputIdName);
+            var fileInputv = document.getElementById(validationIdName);
+
+            if (fileInput.files[0] != null) {
+                fileInputv.innerText = "";
+                fileInput.classList.remove("form-eror");
+                if ((fileInput.files[0].size / 1024 / 1024) < 20) {
+                    fileInputv.innerText = "";
+                    fileInput.classList.remove("form-eror");
+                    return true;
+                } else {
+                    fileInputv.innerText = "Dosya boyutu 20mb tan büyük olamaz";
+                    fileInput.classList.add("form-eror");
+                    return false;
+                }
+            } else {
+                fileInputv.innerText = "Lütfen bir logo ekleyiniz";
+                fileInput.classList.add("form-eror");
+                return false;
+            }
+
+
+
+        }
+
+
+        function inputNotNullController(inputIdName, validationIdName) {
+            var inputId = document.getElementById(inputIdName);
+            var validationId = document.getElementById(validationIdName);
+            console.log(inputIdName);
+            if (inputId.value != "") {
+                validationId.innerText = "";
+                inputId.classList.remove("form-eror");
+
+
+                return true;
+
+            } else {
+
+                inputId.classList.add("form-eror");
+
+                validationId.innerText = "Bu alan boş geçilemez.";
+
+                return false;
+            }
+
+        }
+
+        function checkboxController() {
+            var checkboxKVKKId = document.getElementById("checkboxKVKKId");
+            var checkboxUSSId = document.getElementById("checkboxUSSId");
+            var submitButton = document.getElementById("submitButton");
+            if (checkboxKVKKId.checked && checkboxUSSId.checked) {
+                submitButton.classList.remove("disabled-button");
+                submitButton.disabled = false;
+            } else {
+                submitButton.classList.add("disabled-button");
+                submitButton.disabled = true;
+            }
+        }
+        bkTab();
+
+        function bkTab() {
+            var bid = document.getElementById("bid");
+            var kid = document.getElementById("kid");
+            var kAreaid = document.getElementById("kAreaid");
+            var bAreaid = document.getElementById("bAreaid");
+
+            if (bid.checked) {
+                kAreaid.style.display = "none";
+                bAreaid.style.display = "block";
+            } else {
+                kAreaid.style.display = "block";
+                bAreaid.style.display = "none";
+            }
+        }
+
+        function popupOpen() {
+
+            var popup = document.getElementById("popupId");
+
+            popup.style.display = "flex";
+
+        }
+
+        function popupClose() {
+            var popup = document.getElementById("popupId");
+
+            popup.style.display = "none";
+        }
+
+        function popupErorOpen() {
+
+            var popup = document.getElementById("popupErorId");
+
+            popup.style.display = "flex";
+        }
+
+        function popupErorClose() {
+            var popup = document.getElementById("popupErorId");
+
+            popup.style.display = "none";
+        }
+
+        function formSubmit() {
+
+            var values = [];
+            values.push(inputNotNullController("nameId", "nameIdv"));
+            values.push(inputNotNullController('lastNameId', 'lastNameIdv'));
+            values.push(inputNotNullController('phoneNumberId', 'phoneNumberIdv'));
+            values.push(EMailController('emailAdress1', 'emailAdress1v'));
+            values.push(inputNotNullController('adressId', 'adressIdv'));
+            // values.push(FileController('fileId', 'fileIdv'));
+
+            var bid = document.getElementById("bid");
+
+            if (bid.checked) {
+                values.push(inputNotNullController('flnameid', 'flnameidv'));
+                values.push(inputNotNullController('tckimlikid', 'tckimlikidv'));
+                values.push(inputNotNullController('fladressid', 'fladressidv'));
+
+            } else {
+                values.push(inputNotNullController('conameid', 'conameidv'));
+                values.push(inputNotNullController('covetid', 'covetidv'));
+                values.push(inputNotNullController('covetnoid', 'covetnoidv'));
+                values.push(inputNotNullController('coaddressid', 'coaddressidv'));
+            }
+
+
+            var result = false;
+            for (let i = 0; i < values.length; i++) {
+                if (values[i] == true) {
+                    result = true;
+
+                } else {
+                    result = false;
+                    break;
+                }
+
+            }
+            console.log(result);
+            if (result) {
+                popupOpen();
+            } else {
+                popupErorOpen();
+            }
+            return result;
+
+
+        }
+
+        //clear all input of the form
+        function ClearFieldsAll() {
+            document.getElementById("nameId").value = "";
+            document.getElementById("lastNameId").value = "";
+            document.getElementById("phoneNumberId").value = "";
+            document.getElementById("emailAdress1").value = "";
+            document.getElementById("adressId").value = "";
+            document.getElementById("fileId").value = "";
+
+
+            document.querySelector(".email_2").value = "";
+            document.querySelector(".lname_2").value = "";
+            document.querySelector(".tc_kimlik").value = "";
+            document.querySelector(".email_2").value = "";
+            document.querySelector(".lname_2").value = "";
+            document.querySelector(".covetnoid").value = "";
+            document.querySelector(".coaddressid").value = "";
+
+
+        }
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GS68NF5C3F');
+    </script>
+
+
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/vendor/jquery.waypoints.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/style-switcher.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        $('document').ready(function() {
+
+            $('#submitButton').on('click', function(e) {
+                e.preventDefault();
+                //$('#myModal').modal('toggle');
+                console.log("here we are again");
+
+            });
+
+            $('#sendParttFrom').on('click', function() {
+                $('form').submit();
+                console.log("from gitti")
+            });
+        });
+    </script>
+
+    <!-- <script src="assets/js/mailSend.js"></script>
+    <script src="assets/js/messageConatct.js"></script> -->
+
+</body>
+
+</html>

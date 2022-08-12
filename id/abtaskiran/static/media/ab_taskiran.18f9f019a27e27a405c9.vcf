@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 15.3.1//EN
+N:TAŞKIRAN;Ahmet Burak ;;;
+FN:Ahmet Burak  TAŞKIRAN
+ORG:KAİDE HUKUK&DANIŞMANLIK;
+EMAIL;type=INTERNET;type=HOME;type=pref:samet@hibritmedya.com.tr
+TEL;type=CELL;type=VOICE;type=pref:+905347699356
+X-SOCIALPROFILE;type=twitter:http://twitter.com/abtaskiran
+X-SOCIALPROFILE;type=facebook:https://m.facebook.com/people/Ahmet-Burak-Ta%C5%9Fk%C4%B1ran/100032097703205/
+X-SOCIALPROFILE;type=Instagram;x-user=abtaskiran:x-apple:abtaskiran
+X-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/av-ahmet-burak-ta%C5%9Fkiran-218256178/
+X-SOCIALPROFILE;type=‎WhatsApp;x-user=+905347699356:x-apple:+905347699356
+item1.URL;type=pref:kaidehukuk.com
+item1.X-ABLabel:_$!<HomePage>!$_
+END:VCARD

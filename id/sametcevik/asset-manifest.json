@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/id/sametcevik/static/css/main.56b08315.css",
+    "main.js": "/id/sametcevik/static/js/main.1f82a4e6.js",
+    "static/media/vr-bg.jpg": "/id/sametcevik/static/media/vr-bg.7afa879d8396a599757f.jpg",
+    "static/media/curved14.jpg": "/id/sametcevik/static/media/curved14.12c9ea54425c4f1bc1d7.jpg",
+    "static/media/waves-white.svg": "/id/sametcevik/static/media/waves-white.56607573d7f27cc7c8eb151ea3d5bc67.svg",
+    "static/media/rocket-white.png": "/id/sametcevik/static/media/rocket-white.de5786399f850a27a362.png",
+    "static/media/curved-6.jpg": "/id/sametcevik/static/media/curved-6.71ee1d1cc8196ed2126b.jpg",
+    "static/media/curved1.jpg": "/id/sametcevik/static/media/curved1.af81cb53f1615f33b710.jpg",
+    "static/media/samet.jpg": "/id/sametcevik/static/media/samet.4bf8e93e506934643aae.jpg",
+    "static/media/icon-sun-cloud.png": "/id/sametcevik/static/media/icon-sun-cloud.3399b234b40032f90d9b.png",
+    "static/media/ivancik.jpg": "/id/sametcevik/static/media/ivancik.442b474727c414bb3b85.jpg",
+    "static/media/white-curved.jpeg": "/id/sametcevik/static/media/white-curved.a5b7db662b0b14ab5534.jpeg",
+    "static/media/visa.png": "/id/sametcevik/static/media/visa.71c0d5e9e2aaee42e4c3.png",
+    "static/media/taskiran.jpeg": "/id/sametcevik/static/media/taskiran.fa5f5e4fe2f4293bfd87.jpeg",
+    "static/media/mastercard.png": "/id/sametcevik/static/media/mastercard.27fca3e7637a9458fb64.png",
+    "static/media/team-1.jpg": "/id/sametcevik/static/media/team-1.c821a2730a9c8e3f68eb.jpg",
+    "static/media/team-3.jpg": "/id/sametcevik/static/media/team-3.b75146da5bfdf9d8ae61.jpg",
+    "static/media/qrkodu.svg": "/id/sametcevik/static/media/qrkodu.087ad724eea365efad77f9c43b19226a.svg",
+    "static/media/team-4.jpg": "/id/sametcevik/static/media/team-4.a1e1c29f1b839ddae393.jpg",
+    "static/media/team-2.jpg": "/id/sametcevik/static/media/team-2.e725aef8c892cb21f262.jpg",
+    "static/media/hibrit1.jpeg": "/id/sametcevik/static/media/hibrit1.845b9d02b2b3d02cbed6.jpeg",
+    "static/media/logo-slack.svg": "/id/sametcevik/static/media/logo-slack.7c47c5aa474b5c4fb39fcf05ffb8e4e7.svg",
+    "static/media/logo-xd.svg": "/id/sametcevik/static/media/logo-xd.6e37886f94dba0c2967ece68a152e30c.svg",
+    "static/media/logo-invision.svg": "/id/sametcevik/static/media/logo-invision.a1062115730dcd10e1c4f4abe7b9ab33.svg",
+    "static/media/logo-spotify.svg": "/id/sametcevik/static/media/logo-spotify.e83cf56c9d99a1fdf59e8deb58bbe470.svg",
+    "static/media/logo-jira.svg": "/id/sametcevik/static/media/logo-jira.c19fd4e416babfbd0fdb0a794188c601.svg",
+    "static/media/logo-atlassian.svg": "/id/sametcevik/static/media/logo-atlassian.f2b0e8570a4b4ce768854ff3dad1a6e1.svg",
+    "static/media/logo-webdev.svg": "/id/sametcevik/static/media/logo-webdev.25d88bfc768c8439fdb33efc0d8e6015.svg",
+    "index.html": "/id/sametcevik/index.html",
+    "static/media/ab_taskiran.vcf": "/id/sametcevik/static/media/ab_taskiran.18f9f019a27e27a405c9.vcf",
+    "static/media/sametcevik.vcf": "/id/sametcevik/static/media/sametcevik.32e7558a9b2fd92b064f.vcf",
+    "main.56b08315.css.map": "/id/sametcevik/static/css/main.56b08315.css.map",
+    "main.1f82a4e6.js.map": "/id/sametcevik/static/js/main.1f82a4e6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56b08315.css",
+    "static/js/main.1f82a4e6.js"
+  ]
+}

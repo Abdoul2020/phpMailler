@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/red-gradient.css" id="main_style">
+    <link rel="stylesheet" href="assets/css/payment-style.css" id="main_style">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,800" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css" rel="stylesheet">
+    <title>Hibrit Card</title>
+    <link rel="icon" href="assets/img/Logo_32x32.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./assets/css/animate.css" />
+
+
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            background: goldenrod;
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            transition: all 1s linear;
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .visuallyhidden {
+            opacity: 0;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+
+        code {
+            color: firebrick;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--Main menu-->
+    <div class="menu">
+        <div class="container menu__wrapper">
+            <div class="row">
+                <div class="menu__logo menu__item">
+                    <a href="index"><img src="assets/img/hbrt.png" style="width: 150px;" alt="HibritCard"></a>
+                </div>
+                <div class="menu__item d-t-none">
+                    <nav class="menu__center-nav">
+                        <ul>
+                            <li><a href="index" class="link link--gray link--gray-active">Anasayfa</a></li>
+                            <li><a href="features" class="link link--gray">Özellikler</a></li>
+                            <li><a href="buy" class="link link--gray">Satın Al</a></li>
+                            <li><a href="sss" class="link link--gray">S.S.S.</a></li>
+                            <li><a onclick="openShopping()" class="shopping-icon link link--gray"><i
+                                        class="fa-solid fa-cart-shopping"></i>
+                                    <span class="shopping-number">5</span>
+                                </a></li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu__item">
+                    <nav class="menu__right-nav d-l-none">
+                        <ul>
+                            <li><a href="https://panel.hibritcard.com/" class="site-btn site-btn--accent">Giriş Yap</a>
+                            </li>
+                            <!-- <li>
+              <div class="menu__dropdown d-t-none">
+                <a class="link link--gray menu__dropdown-btn">Tr
+                  <span><i class="mdi mdi-chevron-down"></i></span>
+                </a>
+                <div class="menu__dropdown-content">
+                  <a class="link link--gray" href="#">En</a>
+                  <a class="link link--gray" href="#">Fr</a>
+                </div>
+              </div>
+            </li> -->
+                        </ul>
+                    </nav>
+                    <div class="d-none d-t-block">
+                        <button type="button" class="menu__mobile-button">
+                            <span><i class="mdi mdi-menu" aria-hidden="true"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Main menu-->
+
+    <!--Mobile menu-->
+    <div class="mobile-menu d-none d-t-block">
+        <div class="container">
+            <div class="mobile-menu__logo">
+                <a href="index"><img src="assets/img/logo-square.png" style="width: 50px;" alt="HibritCard"></a>
+            </div>
+            <button type="button" class="mobile-menu__close">
+                <span><i class="mdi mdi-close" aria-hidden="true"></i></span>
+            </button>
+            <nav class="mobile-menu__wrapper">
+                <ul class="mobile-menu__ul">
+                    <li class="mobile-menu__ul--collapsed">
+                    <li class="mobile-menu__li "><a href="index" class="link link--dark-gray">Anasayfa</li>
+                    <li class="mobile-menu__li"><a href="features" class="link link--dark-gray">Özellikler</a></li>
+                    <li class="mobile-menu__li"><a href="buy" class="link link--dark-gray">Satın Al</a></li>
+                    <li class="mobile-menu__li"><a href="sss" class="link link--dark-gray">S.S.S</a></li>
+                    <li class="mobile-menu__li"><a onclick="openShopping()" class="link link--dark-gray"><i
+                                class="fa-solid fa-cart-shopping"></i></a></li>
+
+                    <li class="mobile-menu__li"><a href="https://panel.hibritcard.com/"
+                            class="site-btn site-btn--accent">Giriş Yap</a></li>
+                    <!-- <li class="mobile-menu__li mobile-menu__li-collapse"><a class="link link--dark-gray">En
+          <span><i class="mdi mdi-chevron-down"></i></span></a></li>
+        <li class="mobile-menu__ul--collapsed">
+          <ul class="mobile-menu__ul">
+            <li class="mobile-menu__li"><a href="" class="link link--gray link--gray-active">En</a></li>
+            <li class="mobile-menu__li"><a href="" class="link link--gray">Fr</a></li>
+            <li class="mobile-menu__li"><a href="" class="link link--gray">Ch</a></li>
+          </ul>
+        </li> -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--Mobile menu-->
+
+
+    <!-- shopping area -->
+
+    <div id="shoppingBar" class="shopping-global ">
+        <div onclick="closeShopping()" class="shopping-bg"></div>
+        <div id="shoppingBarIn" class="shopping-bar">
+
+            <div class="header">
+                <div class="text">Sepetim</div>
+                <div onclick="closeShopping()" class="close">x</div>
+            </div>
+
+            <div class="shopping-content">
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">Hibrit Card</div>
+                    <div class="item-type">
+                        <div class="payment-gold">Altın</div>
+                    </div>
+
+
+                    <div class="item-price">
+                        <div class="price-text">₺299,99</div>
+                        <div class="remove">Kaldır</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shopping-footer">
+                <div class="title">
+                    <div class="text">Toplam:</div>
+                    <div class="total-price">₺299,99</div>
+                </div>
+                <div class="footer-buttons">
+                    <div class="button-item">
+                        <a href="#" class="site-btn site-btn--accent form__submit" style="width: 100%;">Sepete Git</a>
+                    </div>
+                    <div class="button-item">
+                        <a href="#" class="site-btn site-btn--accent form__submit" style="width: 100%;">Ödemeye
+                            Geç</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- shopping area -->
+
+    <!--Form-->
+    <section class="section section--last section--top-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <h3 class="section__title">Ödeme Sayfası</h3>
+                </div>
+            </div>
+            <div class="row form">
+                <div class=" col-12 ">
+                    <div class="form__card card form__card--background">
+                        <div class="row">
+                            <div class=" col-7 ">
+
+                                <div class="form__wrap-check">
+                                    <h4>Adres Bilgilerini Giriniz</h4>
+                                    <form class="form__form js-form">
+                                        <div class="form__form-group form__form-group--small">
+                                            <label class="form__label">Adınız</label>
+                                            <input class="form__input js-field__first-name" type="text"
+                                                placeholder="Adınız">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small form__form-group--right">
+                                            <label class="form__label">Soyadınız</label>
+                                            <input class="form__input js-field__last-name" type="text"
+                                                placeholder="Soyadınız">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small">
+                                            <label class="form__label">İletişim Telefonu</label>
+                                            <input class="form__input js-field__first-name" type="text"
+                                                placeholder="İletişim Telefonu">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small form__form-group--right">
+                                            <label class="form__label">E-Posta Adresiniz</label>
+                                            <input class="form__input js-field__last-name" type="text"
+                                                placeholder="E-Posta Adresiniz">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group">
+                                            <label class="form__label">Ülke Seçiniz</label>
+                                            <select class="form__input js-field__first-name" onchange="" size="1">
+                                                <option value="00">Türkiye</option>
+                                                <option value="01">Antalya</option>
+                                                <option value="02">Ankara</option>
+                                            </select>
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <!-- özel -->
+                                        <div class="payment-select-multi">
+                                            <div class=" form__form-group different-adress" style="padding-top: 0;">
+                                                <div class="form__form-group form__form-group">
+                                                    <label class="form__label">İl</label>
+                                                    <select class="form__input js-field__first-name" onchange=""
+                                                        size="1">
+                                                        <option value="00">Adana</option>
+                                                        <option value="01">Antalya</option>
+                                                        <option value="02">Ankara</option>
+                                                    </select>
+                                                    <span class="form-validation"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class=" form__form-group different-adress" style="padding-top: 0;">
+                                                <div class="form__form-group form__form-group">
+                                                    <label class="form__label">İlçe</label>
+                                                    <select class="form__input js-field__first-name" onchange=""
+                                                        size="1">
+                                                        <option value="00">Adana</option>
+                                                        <option value="01">Antalya</option>
+                                                        <option value="02">Ankara</option>
+                                                    </select>
+                                                    <span class="form-validation"></span>
+                                                </div>
+
+                                            </div>
+                                            <div class=" form__form-group different-adress" style="padding-top: 0;">
+                                                <div class="form__form-group form__form-group">
+                                                    <label class="form__label">Mahalle
+                                                    </label>
+                                                    <select class="form__input js-field__first-name" onchange=""
+                                                        size="1">
+                                                        <option value="00">Adana</option>
+                                                        <option value="01">Antalya</option>
+                                                        <option value="02">Ankara</option>
+                                                    </select>
+                                                    <span class="form-validation"></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!-- özel -->
+                                        <div class="form__form-group">
+                                            <label class="form__label">Adresiniz</label>
+                                            <input class="form__input js-field__company" type="text">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Telefon Numaranız</label>
+                                            <input class="form__input js-field__phone" type="text" placeholder="+90"
+                                                required>
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Email</label>
+                                            <input class="form__input js-field__email" type="email" placeholder=""
+                                                required>
+                                            <span class="form-validation"></span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Fatura Bilgileri -->
+
+                                <br> <br>
+                                <div class="form__wrap-check">
+                                    <h4>Fatura Bilgileri</h4>
+                                    <form class="form__form js-form">
+                                        <div class="form__form-group form__form-group--small">
+                                            <label class="form__label">Fatura Türü</label>
+                                            <div class="radio-container">
+                                                <label class="payment-radio">
+                                                    <input type="radio" checked="checked" name="invoice-type">
+                                                    <span class="checkmark">Bireysel</span>
+                                                </label>
+                                                <label class="payment-radio">
+                                                    <input type="radio" name="invoice-type">
+                                                    <span class="checkmark">Kurumsal</span>
+                                                </label>
+
+                                            </div>
+
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group form__form-group--small form__form-group--right">
+
+                                        </div>
+
+
+                                        <div class="form__form-group">
+                                            <label class="form__label">Ad Soyad</label>
+                                            <input class="form__input js-field__company" type="text"
+                                                placeholder="Ad Soyad">
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Tc Kimlik No</label>
+                                            <input class="form__input js-field__phone" type="text"
+                                                placeholder="Tc Kimlik No" required>
+                                            <span class="form-validation"></span>
+                                        </div>
+                                        <div class="form__form-group">
+                                            <label class="form__label">Email</label>
+                                            <input class="form__input js-field__email" type="email" placeholder=""
+                                                required>
+                                            <span class="form-validation"></span>
+                                        </div>
+
+
+                                        <div class="form__form-group">
+                                            <label oninput="differentAdressToggle()"
+                                                class="form__form-group payment-checkbox">
+                                                <input type="checkbox" name="radio">
+                                                <span class="checkmark">Fatura Adresim Farklı</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="form__form-group" id="differentAdressID" style="display: none;">
+
+                                            <div class="  different-adress" style="padding-top: 0;">
+                                                <!-- özel -->
+                                                <div class="form__form-group payment-select">
+                                                    <label class="form__label">Fatura Ülkesi *</label>
+                                                    <select class="form__input js-field__first-name" onchange=""
+                                                        size="1">
+                                                        <option value="00">Adana</option>
+                                                        <option value="01">Antalya</option>
+                                                        <option value="02">Ankara</option>
+                                                    </select>
+                                                    <span class="form-validation"></span>
+                                                </div>
+
+                                                <!-- özel -->
+                                            </div>
+
+                                            <div class="payment-select-multi">
+                                                <div class=" form__form-group different-adress">
+                                                    <div class="form__form-group form__form-group">
+                                                        <label class="form__label">Fatura İli*</label>
+                                                        <select class="form__input js-field__first-name" onchange=""
+                                                            size="1">
+                                                            <option value="00">Adana</option>
+                                                            <option value="01">Antalya</option>
+                                                            <option value="02">Ankara</option>
+                                                        </select>
+                                                        <span class="form-validation"></span>
+                                                    </div>
+
+                                                </div>
+                                                <div class=" form__form-group different-adress">
+                                                    <div class="form__form-group form__form-group">
+                                                        <label class="form__label">Fatura İlçesi*</label>
+                                                        <select class="form__input js-field__first-name" onchange=""
+                                                            size="1">
+                                                            <option value="00">Adana</option>
+                                                            <option value="01">Antalya</option>
+                                                            <option value="02">Ankara</option>
+                                                        </select>
+                                                        <span class="form-validation"></span>
+                                                    </div>
+
+                                                </div>
+                                                <div class=" form__form-group different-adress">
+                                                    <div class="form__form-group form__form-group">
+                                                        <label class="form__label">Fatura Mahallesi*
+                                                        </label>
+                                                        <select class="form__input js-field__first-name" onchange=""
+                                                            size="1">
+                                                            <option value="00">Adana</option>
+                                                            <option value="01">Antalya</option>
+                                                            <option value="02">Ankara</option>
+                                                        </select>
+                                                        <span class="form-validation"></span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form__form-group">
+                                                <label class="form__label">Fatura Adresi *</label>
+                                                <textarea class="form__input form__payment-textarea  js-field__phone"
+                                                    type="text" placeholder="Tc Kimlik No" required>
+
+                                                    </textarea>
+
+                                                <span class="form-validation"></span>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div class=" col-5 ">
+                                <div class="form__wrap-check">
+                                    <h4>Sipariş Detayınız</h4>
+                                    <form class="form__form js-form">
+                                        <div class="payment-detail">
+                                            <div class="detail-left">
+                                                <b> Ürün</b>
+                                            </div>
+                                            <div class="detail-right">
+                                                <b> Fiyat</b>
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-left">
+                                                <div class="text">Deneme Kart Adı</div>
+                                                <div class="payment-gold">Altın</div>
+
+                                            </div>
+                                            <div class="detail-right">
+                                                ₺299,99
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-left">
+                                                <div class="text">Deneme Kart Adı</div>
+                                                <div class="payment-silver">Gümüş</div>
+
+                                            </div>
+                                            <div class="detail-right">
+                                                ₺299,99
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-left">
+                                                Kargo
+
+                                            </div>
+                                            <div class="detail-right">
+                                                <div class="detail-radio-container">
+                                                    <label class="detail-radio">
+                                                        <input type="radio" checked="checked" name="cargo">
+                                                        <img src="./assets/img/payment/yurticikargo.jpg" alt="">
+                                                        <span class="checkmark">Yurtiçi Kargo / Ücretsiz</span>
+                                                    </label>
+                                                    <label class="detail-radio">
+                                                        <input type="radio" name="cargo">
+                                                        <img src="./assets/img/payment/banabikurye.png" alt="">
+
+                                                        <span class="checkmark">Banabi Kurye / Hızlı gönderim</span>
+                                                    </label>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-left">
+                                                <b>Toplam</b>
+
+                                            </div>
+                                            <div class="detail-right">
+                                                <b> ₺599,98</b>
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-radio-container">
+                                                <label class="detail-radio">
+                                                    <input type="radio" checked="checked" name="payment-type">
+                                                    <span class="checkmark">Kredi Kartı İle Öde</span>
+                                                </label>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-radio-container">
+                                                <label class="detail-radio">
+                                                    <input type="radio" name="payment-type">
+
+                                                    <span class="checkmark">Eft Havale İle Öde</span>
+                                                </label>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="payment-detail">
+                                            Kişisel verileriniz, siparişinizi işleme koymak, bu web sitesindeki
+                                            deneyiminizi desteklemek ve gizlilik politikamızda açıklanan diğer amaçlar
+                                            için kullanılacaktır.
+                                        </div>
+
+                                        <div class="payment-detail">
+                                            <div class="detail-checkbox-container">
+                                                <label class="detail-checkbox">
+                                                    <input type="checkbox" name="radio">
+
+                                                    <span class="checkmark"><b> KVKK Aydınlatma Metni</b> okudum, Kabul
+                                                        ediyorum. *</span>
+                                                </label>
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="payment-detail">
+                                            <div class="detail-checkbox-container">
+                                                <label class="detail-checkbox">
+                                                    <input type="checkbox" name="radio">
+
+                                                    <span class="checkmark"><b> Uzaktan Satış Sözleşmesi</b> okudum,
+                                                        Kabul ediyorum.*</span>
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                        <div class="payment-detail">
+                                            <a href="#" class="site-btn site-btn--accent form__submit"
+                                                style="width: 100%;">Ödeme İşlemine
+                                                Geç</a>
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!--Form-->
+
+
+    <!--Footer menu-->
+    <div class="container footer-menu">
+        <div class="row">
+            <div class="col-12">
+                <a href="index">
+                    <img src="assets/img/logo-square.png" style="width:40px;">
+                </a>
+                <nav class="footer-menu__nav">
+                    <ul>
+                        <li><a href="https://panel.hibritcard.com/" class="link link--gray">Giriş Yap</a></li>
+                        <li><a href="sss" class="link link--gray">SSS</a></li>
+                        <!-- <li><a href="privacy" class="link link--gray">Aydınlatma Metni</a></li> -->
+                    </ul>
+                </nav>
+                <p class="footer-menu__social">
+                    <a class="link link--gray" href="https://twitter.com/hibritcard">
+                        <i class="mdi mdi-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.facebook.com/hibritcard/">
+                        <i class="mdi mdi-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.instagram.com/hibritcard/">
+                        <i class="mdi mdi-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a class="link link--gray" href="https://www.linkedin.com/company/hibritcard/">
+                        <i class="mdi mdi-instagram" aria-hidden="true"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--Footer menu-->
+
+    <hr>
+
+    <!--Footer-->
+    <div class="footer ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p style="font-weight: 500;">Copyright © 2021 <strong
+                            style="font-weight: 700;">HibritCard</strong><br> Design and Development by
+                        <a style="text-decoration: none; color:#fdd140" target="_blank"
+                            href="https://www.hibritmedya.com.tr">Hibrit Medya A.Ş.</a> All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Footer-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS68NF5C3F"></script>
+    <script>
+
+
+        var differentAdressOpen = false;
+
+        function differentAdressToggle() {
+            var element = document.getElementById("differentAdressID");
+            if (differentAdressOpen) {
+                element.classList.add('animate__bounceOut');
+                element.classList.remove('animate__bounceIn');
+
+
+                setTimeout(function () {
+                    element.style.display = "none";
+                    element.classList.remove('animate__bounceOut');
+                    console.log("transitionend");
+                }, 700);
+                differentAdressOpen = false;
+
+            } else {
+                element.style.display = "block";
+
+                element.classList.add('animate__bounceIn');
+                differentAdressOpen = true;
+            }
+
+        }
+
+
+
+
+
+    </script>
+    <script>
+        function openShopping() {
+
+            var element = document.getElementById("shoppingBar");
+            var elementIn = document.getElementById("shoppingBarIn");
+            elementIn.classList.remove('animate__bounceOut');
+
+            element.classList.add("shopping-open");
+
+            elementIn.classList.add('animate__bounceIn');
+
+        }
+
+        function closeShopping() {
+
+
+            var element = document.getElementById("shoppingBarIn");
+            var elementIn = document.getElementById("shoppingBar");
+            elementIn.classList.remove('animate__bounceIn');
+            element.classList.add('animate__bounceOut');
+
+            setTimeout(function () {
+
+                elementIn.classList.remove("shopping-open");
+            }, 700);
+        }
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GS68NF5C3F');
+    </script>
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/vendor/jquery.waypoints.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/mobile-menu.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/style-switcher.js"></script>
+</body>
+
+</html>
